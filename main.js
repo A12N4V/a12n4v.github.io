@@ -10,7 +10,7 @@ function makeSquare(){
   const bg=colors[Math.floor(Math.random()*colors.length)]
   square.style.background=bg;
   section.appendChild(square);
-  setTimout(() =>{
+  setTimeout(() =>{
     square.remove()
   },5000)
 }
