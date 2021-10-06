@@ -37,3 +37,7 @@ span{
     opacity: 0;
   }
 }
+
+td {
+  vertical-align: middle;
+}
