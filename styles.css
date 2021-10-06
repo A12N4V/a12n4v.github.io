@@ -11,7 +11,7 @@ body{
 }
 
 section{
-  height:80vh;
+  height:100vh;
 }
 
 span{
@@ -42,7 +42,7 @@ td {
   vertical-align: middle;
 }
 
-h2 {
+h1 {
   text-align: center;
   background: white;
 }
