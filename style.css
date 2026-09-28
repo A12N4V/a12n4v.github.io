@@ -141,6 +141,11 @@ a:hover { color: var(--acc-ink); }
 .reg--tl { left: -9px; top: -9px; } .reg--tr { right: -9px; top: -9px; }
 .reg--bl { left: -9px; bottom: -9px; } .reg--br { right: -9px; bottom: -9px; }
 
+/* small screens: the readout sits under the figure instead of beside the lens */
+@media (max-width: 560px) {
+  .probe { padding-bottom: 44px; }
+  .probe__readout { top: auto; bottom: -46px; transform: none !important; display: flex; gap: 14px; background: none; }
+}
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 88px; }
   .probe { justify-self: center; width: min(100%, 560px); }
@@ -195,6 +200,11 @@ a.work__m { color: var(--acc-ink); }
 /* ---------- IV/V. boards (the profile plates) ---------- */
 .board { margin: 0 auto clamp(28px, 4vw, 56px); }
 .board img { width: 100%; }
+/* on narrow screens the plates keep a readable size and pan sideways */
+@media (max-width: 760px) {
+  .board { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--night-rule) transparent; margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 8px; }
+  .board img { width: 820px; max-width: none; }
+}
 #pvlsvs { padding-top: 0; }
 
 /* ---------- VI. contact ---------- */
