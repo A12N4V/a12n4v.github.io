@@ -1,11 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <title>Homepage</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arnav Sharma · The body, computed</title>
+  <meta name="description" content="Arnav Sharma works where medicine meets computation: biodigital twins, medical AI and cybernetics. Building Homonin, a cyber-medical research workspace." />
+  <meta name="theme-color" content="#ebe6dc" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://a12n4v.github.io/" />
+  <meta property="og:title" content="Arnav Sharma · The body, computed" />
+  <meta property="og:description" content="Biodigital twins, medical AI and cybernetics. Building Homonin." />
+  <meta property="og:image" content="https://a12n4v.github.io/assets/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@neurarnav" />
+  <link rel="preload" href="assets/fonts/Italiana-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/img/persona-frons.webp" as="image" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="location.assign('crafting')">
+<body>
+  <a class="skip" href="#persona">Skip to content</a>
+
+  <header class="bar">
+    <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page">
+      <span class="glyph glyph--helm" aria-hidden="true"></span>A12N4V
+    </a>
+    <nav class="bar__nav" aria-label="Sections">
+      <a href="#persona"><i>II</i> Persona</a>
+      <a href="#opera"><i>III</i> Opera</a>
+      <a href="#systema"><i>IV</i> Systema</a>
+      <a href="#pvlsvs"><i>V</i> Pvlsvs</a>
+      <a href="#contact"><i>VI</i> Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- I. HERO ------------------------------------------------------------ -->
+    <section class="hero paper" aria-labelledby="name">
+      <div class="hero__text">
+        <p class="eyebrow">I &nbsp;·&nbsp; UC Irvine &nbsp;·&nbsp; MMXXVI</p>
+        <h1 id="name" class="display">Arnav<br />Sharma</h1>
+        <p class="lede"><em>The body, computed.</em></p>
+        <p class="hero__body">I work where medicine meets computation: biodigital twins, medical AI, and the cybernetics that ties them together. I'm building <a href="https://homonin.com">Homonin</a>, a cyber-medical research workspace.</p>
+        <ul class="tags" aria-label="Focus">
+          <li>Biodigital twins</li><li>Medical AI</li><li>Neural systems</li><li>Cybernetics</li>
+        </ul>
+        <p class="hero__links">
+          <a class="btn" href="https://homonin.com"><span class="glyph glyph--helm" aria-hidden="true"></span>homonin.com</a>
+          <a class="btn btn--ghost" href="https://x.com/neurarnav">@neurarnav</a>
+          <a class="btn btn--ghost" href="https://github.com/A12N4V">GitHub</a>
+        </p>
+      </div>
+
+      <figure class="probe" id="probe">
+        <div class="probe__stage">
+          <img class="probe__fallback" src="assets/img/persona-frons.webp" width="1240" height="1269" alt="A figure in a black hood wearing a polished metal skull mask, drawn as a dotted engraving." />
+          <canvas class="probe__canvas" aria-hidden="true"></canvas>
+          <div class="probe__readout" aria-hidden="true"><b>PROBE</b><span data-k="xy">x 0.50 · y 0.40</span><span data-k="rho">ρ 0.00</span></div>
+          <span class="reg reg--tl" aria-hidden="true"></span><span class="reg reg--tr" aria-hidden="true"></span>
+          <span class="reg reg--bl" aria-hidden="true"></span><span class="reg reg--br" aria-hidden="true"></span>
+        </div>
+      </figure>
+    </section>
+
+    <div class="ramp ramp--down" aria-hidden="true"></div>
+
+    <!-- II. PERSONA -------------------------------------------------------- -->
+    <section id="persona" class="section night" aria-labelledby="persona-h">
+      <header class="section__head">
+        <p class="num">II</p>
+        <h2 id="persona-h" class="display">Persona</h2>
+        <p class="section__intro">A mask is a sign. It stands for a person without being one. A digital twin works the same way: it looks like the body, it is caused by the body's signals, and it can be acted on in the body's place. C.&nbsp;S.&nbsp;Peirce had three words for this.</p>
+      </header>
+      <ol class="triptych">
+        <li class="plate">
+          <div class="plate__img"><img src="assets/img/persona-frons.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, facing forward." /></div>
+          <p class="plate__no">01</p>
+          <h3 class="plate__t">Icon</h3>
+          <p class="plate__d"><em>It resembles.</em> Imaging and anatomy: the twin as a likeness of the body.</p>
+        </li>
+        <li class="plate">
+          <div class="plate__img"><img src="assets/img/persona-profilvs.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, turned three-quarters away." /></div>
+          <p class="plate__no">02</p>
+          <h3 class="plate__t">Index</h3>
+          <p class="plate__d"><em>It is caused.</em> ECG, labs, wearables: signals the body leaves behind, like a footprint.</p>
+        </li>
+        <li class="plate plate--lit">
+          <div class="plate__img"><img src="assets/img/persona-ignis.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, facing forward, lit in orange." /></div>
+          <p class="plate__no">03</p>
+          <h3 class="plate__t">Symbol</h3>
+          <p class="plate__d"><em>It stands for.</em> Equations and code: the model that can be run, tested and acted on.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="ramp ramp--up" aria-hidden="true"></div>
+
+    <!-- III. OPERA --------------------------------------------------------- -->
+    <section id="opera" class="section paper" aria-labelledby="opera-h">
+      <header class="section__head">
+        <p class="num">III</p>
+        <h2 id="opera-h" class="display">Opera</h2>
+        <p class="section__intro">What I'm working on.</p>
+      </header>
+      <ol class="works">
+        <li class="work">
+          <span class="glyph glyph--lg glyph--helm" aria-hidden="true"></span>
+          <div>
+            <h3 class="work__t">Homonin</h3>
+            <p class="work__d">A cyber-medical research workspace, built to turn what the body emits into models you can reason with.</p>
+          </div>
+          <a class="work__m" href="https://homonin.com">homonin.com <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="work">
+          <span class="glyph glyph--lg glyph--d05" aria-hidden="true"></span>
+          <div>
+            <h3 class="work__t">Biodigital twins</h3>
+            <p class="work__d">Mapping which parts of the body can already be computed. The heart and bone are largely solved, the brain is converging, and the cell is still open.</p>
+          </div>
+          <span class="work__m">Research</span>
+        </li>
+        <li class="work">
+          <span class="glyph glyph--lg glyph--d04" aria-hidden="true"></span>
+          <div>
+            <h3 class="work__t">Neural systems &amp; adaptive AI</h3>
+            <p class="work__d">Biologically grounded AI: models of neural systems, and care that adapts to the signal it receives.</p>
+          </div>
+          <span class="work__m">Models</span>
+        </li>
+        <li class="work">
+          <span class="glyph glyph--lg glyph--d03" aria-hidden="true"></span>
+          <div>
+            <h3 class="work__t">Plates</h3>
+            <p class="work__d">A small dither engine that draws my GitHub profile: an 8×8 Bayer matrix on canvas, a hand-written GIF encoder, and a plate that re-renders itself every day.</p>
+          </div>
+          <a class="work__m" href="https://github.com/A12N4V/A12N4V">Source <span aria-hidden="true">↗</span></a>
+        </li>
+      </ol>
+    </section>
+
+    <div class="ramp ramp--down" aria-hidden="true"></div>
+
+    <!-- IV. SYSTEMA -------------------------------------------------------- -->
+    <section id="systema" class="section night" aria-labelledby="systema-h">
+      <header class="section__head">
+        <p class="num">IV</p>
+        <h2 id="systema-h" class="display">Systema</h2>
+        <p class="section__intro">Medicine is a control problem. Above, the work organized as Stafford Beer's <em>Viable System Model</em> (<em>Brain of the Firm</em>, 1972), with Homonin at the center. Below, what the body emits, the formats it arrives in, and where it goes.</p>
+      </header>
+      <figure class="board">
+        <img src="assets/plates/systema.gif" width="1600" height="1000" loading="lazy" alt="Animated Viable System Model. Policy, intelligence, control, coordination, models, research and the environment each send signals into Homonin, which sends feedback back out to each one." />
+      </figure>
+      <figure class="board">
+        <img src="assets/plates/flvxvs.gif" width="1600" height="960" loading="lazy" alt="Animated data flow. Cardiac, neural, imaging, genome, lab, record and pathway data, each with its file formats, flow into Homonin and out to a digital twin, therapy, care and evidence, with feedback back to every source." />
+      </figure>
+    </section>
+
+    <!-- V. PVLSVS ---------------------------------------------------------- -->
+    <section id="pvlsvs" class="section night" aria-labelledby="pvlsvs-h">
+      <header class="section__head">
+        <p class="num">V</p>
+        <h2 id="pvlsvs-h" class="display">Pvlsvs</h2>
+        <p class="section__intro">A live reading of my <a href="https://github.com/A12N4V">GitHub</a>: contributions as a heartbeat, re-drawn every day by a GitHub Action.</p>
+      </header>
+      <figure class="board">
+        <img src="https://raw.githubusercontent.com/A12N4V/A12N4V/output/a12n4v-pvlsvs.gif" width="1600" height="960" loading="lazy" alt="Live GitHub activity: weekly contributions as an ECG trace, the past year as a dithered calendar, then streaks, repositories, stars, followers and languages." />
+      </figure>
+    </section>
+
+    <div class="ramp ramp--up" aria-hidden="true"></div>
+
+    <!-- VI. CONTACT -------------------------------------------------------- -->
+    <section id="contact" class="section paper contact" aria-labelledby="contact-h">
+      <div class="contact__fig">
+        <img src="assets/img/persona-profilvs.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, turned away." />
+      </div>
+      <div class="contact__text">
+        <p class="num">VI</p>
+        <h2 id="contact-h" class="display">Write to me</h2>
+        <p class="section__intro">About twins, models, Homonin, or anything that closes a loop.</p>
+        <a class="mail" href="mailto:aaarnavsssharma@gmail.com">aaarnavsssharma@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://x.com/neurarnav"><span>X</span>@neurarnav</a></li>
+          <li><a href="https://github.com/A12N4V"><span>GitHub</span>A12N4V</a></li>
+          <li><a href="https://homonin.com"><span>Homonin</span>homonin.com</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot night">
+    <p class="foot__motto">Corpvs · Signvm · Machina</p>
+    <p class="foot__meta">© MMXXVI Arnav Sharma · UC Irvine · Set in Italiana, Crimson Pro and JetBrains Mono</p>
+  </footer>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
