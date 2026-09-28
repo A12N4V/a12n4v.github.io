@@ -45,14 +45,15 @@
   const outXY = out.querySelector('[data-k="xy"]'), outRho = out.querySelector('[data-k="rho"]');
   const g = cv.getContext('2d');
 
-  const CELL = 2;                 // css px per dither cell
   let gw = 0, gh = 0, D = null, X = null, frame = null;
   let px = 0, py = 0, tx = 0, ty = 0, lastPointer = -1e9, visible = true, raf = 0;
 
   function layout() {
     const r = stage.getBoundingClientRect();
     if (!r.width || !src.naturalWidth) return;
-    gw = Math.max(64, Math.round(r.width / CELL));
+    // css px per dither cell: 2, or 1 on small high-density screens so the figure stays fine
+    const cell = r.width < 700 && devicePixelRatio >= 2 ? 1 : 2;
+    gw = Math.max(64, Math.round(r.width / cell));
     gh = Math.round(gw * src.naturalHeight / src.naturalWidth);
     cv.width = gw; cv.height = gh;
     // two fields from the (transparent-backed) figure, sampled down with high-quality
@@ -101,6 +102,7 @@
     g.putImageData(frame, 0, 0);
     // readout sits beside the lens, in css px
     const k = stage.clientWidth / gw, ox = (px + R + 12) * k, oy = (py - R) * k;
+    // (on small screens CSS pins the readout under the figure instead)
     const flip = ox + 120 > stage.clientWidth;
     out.style.transform = `translate(${Math.round(flip ? (px - R - 12) * k - 118 : ox)}px, ${Math.round(Math.max(0, oy))}px)`;
     outXY.textContent = `x ${(px / gw).toFixed(2)} · y ${(py / gh).toFixed(2)}`;
