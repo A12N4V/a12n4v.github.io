@@ -4,9 +4,11 @@ Arnav Sharma's site: biodigital twins, medical AI, cybernetics, and [Homonin](ht
 
 A single static page with no build step: `index.html`, `style.css`, `main.js`.
 
-- **Hero**: the persona is re-dithered live on a canvas with an 8×8 Bayer matrix. An orange probe follows the pointer, or drifts on its own, and shows the image's highlights in an x-ray lens. It honours `prefers-reduced-motion`, and without JavaScript the plain image shows.
-- **Sections**: Persona (Peirce's icon, index and symbol), Opera (work, with Homonin's 24×24 pixel glyphs), Systema (the profile plates), Pvlsvs (the live GitHub plate, served from the `output` branch of [A12N4V/A12N4V](https://github.com/A12N4V/A12N4V)), and Contact.
-- **Palette**: Homonin's (paper `#ebe6dc`, ink `#0c0a09`, night `#000`, accent `#f97f3a`). Transitions between paper and night are drawn as dithered ramps.
-- **Type**: Italiana, Crimson Pro and JetBrains Mono, self-hosted under the SIL Open Font License (see `assets/fonts/*-OFL.txt`).
+1. **I–III, on beige.** Each section opens with one of the three persona images: the name set around the figure, *A mask is a sign*, and Homonin.
+2. **IV. Historia, inverted to black.** A timeline from Peirce's signs to Homonin. A sticky particle stage morphs with each entry: SIGNVM, Peirce's triad, Saussure's *arbor*, a threshold neuron, feedback loops, the Hodgkin–Huxley spike, Turing spots (simulated live as Gray–Scott), a DNA helix, attention, a protein fold and a network.
+3. **After 2023 the page hallucinates.** Text blurs, doubles and swaps words for DeepDream's dogs and eyes. A scroll-linked WebGL layer zooms endlessly into the persona. At the last entry, Homonin, the particles resolve into the figure and the dream fades.
+4. **V. Contact.** The page wakes back up on beige.
 
-`assets/plates/*.gif` are copies of the profile plates, which are rendered by `tools/plates` in A12N4V/A12N4V.
+Motion honours `prefers-reduced-motion`, and the hallucinated text keeps its original wording for screen readers. Iconography is a hand-drawn SVG sprite at the top of `index.html`.
+
+Type: Italiana, Crimson Pro and JetBrains Mono, self-hosted under the SIL Open Font License (see `assets/fonts/*-OFL.txt`).

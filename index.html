@@ -21,179 +21,150 @@
 <body>
   <a class="skip" href="#persona">Skip to content</a>
 
+  <!-- Iconography: engraved line signs on a 48-unit grid, stroke = currentColor -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-triad" viewBox="0 0 48 48"><path d="M24 9 L10 36 H38 Z" /><circle cx="24" cy="9" r="4.2" /><circle cx="10" cy="36" r="4.2" /><circle cx="38" cy="36" r="4.2" /><circle cx="24" cy="27" r="1.2" class="fill" /></symbol>
+      <symbol id="i-arbor" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="15" ry="20" /><path d="M9 24 H39" /><path d="M24 20 V10 M24 14 L19 10 M24 16 L29 11 M24 12 L22 8" /><path d="M17 31 h14 M17 35 h10" /></symbol>
+      <symbol id="i-loop" viewBox="0 0 48 48"><path d="M35.5 16.5 A14 14 0 1 0 38 24" /><path d="M31 15 L36 16 L35 11" /><path d="M16 24 q4 -6 8 0 t8 0" /></symbol>
+      <symbol id="i-neuron" viewBox="0 0 48 48"><circle cx="17" cy="24" r="4.5" /><path d="M13 21 L6 13 M9 17 L5 18 M13 27 L7 35 M9 31 L5 30 M17 19.5 V10" /><path d="M21.5 24 H33 M33 24 L41 17 M33 24 L41 31 M33 24 H42" /><path d="M24 22 v4 M28 22 v4" /></symbol>
+      <symbol id="i-spike" viewBox="0 0 48 48"><path d="M4 30 H13 L16 28 L19 8 L22 38 L25 32 L28 30 H44" /></symbol>
+      <symbol id="i-turing" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" /><circle cx="17" cy="16" r="2.4" class="fill" /><circle cx="28" cy="14" r="2" class="fill" /><circle cx="33" cy="24" r="2.6" class="fill" /><circle cx="22" cy="25" r="2.2" class="fill" /><circle cx="14" cy="30" r="2" class="fill" /><circle cx="26" cy="34" r="2.4" class="fill" /><circle cx="34" cy="33" r="1.6" class="fill" /></symbol>
+      <symbol id="i-helix" viewBox="0 0 48 48"><path d="M16 4 C32 12, 32 20, 16 28 S 0 44, 16 44" transform="translate(4 0)" /><path d="M32 4 C16 12, 16 20, 32 28 S 48 44, 32 44" transform="translate(-4 0)" /><path d="M17 9 H31 M20 16 H28 M17 23 H31 M20 32 H28 M17 39 H31" /></symbol>
+      <symbol id="i-fold" viewBox="0 0 48 48"><path d="M8 38 C8 26, 20 30, 18 20 S 8 10, 16 7 S 30 10, 26 18 S 30 30, 38 26 S 42 12, 36 9" /><circle cx="8" cy="38" r="2" class="fill" /><circle cx="36" cy="9" r="2" class="fill" /></symbol>
+      <symbol id="i-net" viewBox="0 0 48 48"><circle cx="8" cy="12" r="2.6" /><circle cx="8" cy="24" r="2.6" /><circle cx="8" cy="36" r="2.6" /><circle cx="24" cy="18" r="2.6" /><circle cx="24" cy="30" r="2.6" /><circle cx="40" cy="24" r="2.6" /><path d="M10.5 12.5 L21.5 17.5 M10.5 13.5 L21.8 28.5 M10.6 24 L21.5 18.5 M10.6 24 L21.5 29.5 M10.5 34.5 L21.8 19.5 M10.5 35.5 L21.5 30.5 M26.5 18.8 L37.5 23.2 M26.5 29.2 L37.5 24.8" /></symbol>
+      <symbol id="i-eye" viewBox="0 0 48 48"><path d="M4 24 C12 12, 36 12, 44 24 C36 36, 12 36, 4 24 Z" /><circle cx="24" cy="24" r="7" /><circle cx="24" cy="24" r="2.6" class="fill" /><path d="M24 6 v4 M12 9 l2 3.5 M36 9 l-2 3.5" /></symbol>
+      <symbol id="i-body" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" /><rect x="8.5" y="8.5" width="31" height="31" /><circle cx="24" cy="13" r="3.2" /><path d="M24 16.5 V30 M24 30 L17 41 M24 30 L31 41 M10 21 H38 M24 19 L12 12 M24 19 L36 12" /></symbol>
+      <symbol id="i-quill" viewBox="0 0 48 48"><path d="M40 6 C24 10, 14 22, 10 40 C20 32, 32 22, 40 6 Z" /><path d="M10 40 L6 44 M16 30 C22 26, 28 20, 33 13" /></symbol>
+    </defs>
+  </svg>
+
   <header class="bar">
-    <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page">
-      <span class="glyph glyph--helm" aria-hidden="true"></span>A12N4V
-    </a>
+    <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page"><svg class="ico" aria-hidden="true"><use href="#i-triad" /></svg>A12N4V</a>
     <nav class="bar__nav" aria-label="Sections">
       <a href="#persona"><i>II</i> Persona</a>
       <a href="#opera"><i>III</i> Opera</a>
-      <a href="#systema"><i>IV</i> Systema</a>
-      <a href="#pvlsvs"><i>V</i> Pvlsvs</a>
-      <a href="#contact"><i>VI</i> Contact</a>
+      <a href="#historia"><i>IV</i> Historia</a>
+      <a href="#contact"><i>V</i> Contact</a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- I. HERO ------------------------------------------------------------ -->
-    <section class="hero paper" aria-labelledby="name">
-      <div class="hero__text">
-        <p class="eyebrow">I &nbsp;·&nbsp; UC Irvine &nbsp;·&nbsp; MMXXVI</p>
-        <h1 id="name" class="display">Arnav<br />Sharma</h1>
+    <!-- I. HERO: the name set around the figure -------------------------- -->
+    <section class="hero" aria-labelledby="name">
+      <h1 id="name" class="hero__name"><span class="hero__first">Arnav</span> <span class="hero__last">Sharma</span></h1>
+      <figure class="hero__fig">
+        <img src="assets/img/persona-frons.webp" width="1240" height="1269" alt="Arnav's persona: a figure in a black hood wearing a polished metal skull mask, drawn as a dotted engraving." fetchpriority="high" />
+      </figure>
+      <div class="hero__foot">
+        <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-body" /></svg>I &nbsp;·&nbsp; UC Irvine &nbsp;·&nbsp; MMXXVI</p>
         <p class="lede"><em>The body, computed.</em></p>
-        <p class="hero__body">I work where medicine meets computation: biodigital twins, medical AI, and the cybernetics that ties them together. I'm building <a href="https://homonin.com">Homonin</a>, a cyber-medical research workspace.</p>
-        <ul class="tags" aria-label="Focus">
-          <li>Biodigital twins</li><li>Medical AI</li><li>Neural systems</li><li>Cybernetics</li>
-        </ul>
         <p class="hero__links">
-          <a class="btn" href="https://homonin.com"><span class="glyph glyph--helm" aria-hidden="true"></span>homonin.com</a>
+          <a class="btn" href="https://homonin.com">homonin.com</a>
           <a class="btn btn--ghost" href="https://x.com/neurarnav">@neurarnav</a>
           <a class="btn btn--ghost" href="https://github.com/A12N4V">GitHub</a>
         </p>
       </div>
+    </section>
 
-      <figure class="probe" id="probe">
-        <div class="probe__stage">
-          <img class="probe__fallback" src="assets/img/persona-frons.webp" width="1240" height="1269" alt="A figure in a black hood wearing a polished metal skull mask, drawn as a dotted engraving." />
-          <canvas class="probe__canvas" aria-hidden="true"></canvas>
-          <div class="probe__readout" aria-hidden="true"><b>PROBE</b><span data-k="xy">x 0.50 · y 0.40</span><span data-k="rho">ρ 0.00</span></div>
-          <span class="reg reg--tl" aria-hidden="true"></span><span class="reg reg--tr" aria-hidden="true"></span>
-          <span class="reg reg--bl" aria-hidden="true"></span><span class="reg reg--br" aria-hidden="true"></span>
-        </div>
+    <!-- II. PERSONA ---------------------------------------------------- -->
+    <section id="persona" class="plate plate--left" aria-labelledby="persona-h">
+      <figure class="plate__fig">
+        <img src="assets/img/persona-profilvs.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, turned three-quarters away." />
       </figure>
-    </section>
-
-    <div class="ramp ramp--down" aria-hidden="true"></div>
-
-    <!-- II. PERSONA -------------------------------------------------------- -->
-    <section id="persona" class="section night" aria-labelledby="persona-h">
-      <header class="section__head">
-        <p class="num">II</p>
-        <h2 id="persona-h" class="display">Persona</h2>
-        <p class="section__intro">A mask is a sign. It stands for a person without being one. A digital twin works the same way: it looks like the body, it is caused by the body's signals, and it can be acted on in the body's place. C.&nbsp;S.&nbsp;Peirce had three words for this.</p>
-      </header>
-      <ol class="triptych">
-        <li class="plate">
-          <div class="plate__img"><img src="assets/img/persona-frons.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, facing forward." /></div>
-          <p class="plate__no">01</p>
-          <h3 class="plate__t">Icon</h3>
-          <p class="plate__d"><em>It resembles.</em> Imaging and anatomy: the twin as a likeness of the body.</p>
-        </li>
-        <li class="plate">
-          <div class="plate__img"><img src="assets/img/persona-profilvs.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, turned three-quarters away." /></div>
-          <p class="plate__no">02</p>
-          <h3 class="plate__t">Index</h3>
-          <p class="plate__d"><em>It is caused.</em> ECG, labs, wearables: signals the body leaves behind, like a footprint.</p>
-        </li>
-        <li class="plate plate--lit">
-          <div class="plate__img"><img src="assets/img/persona-ignis.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, facing forward, lit in orange." /></div>
-          <p class="plate__no">03</p>
-          <h3 class="plate__t">Symbol</h3>
-          <p class="plate__d"><em>It stands for.</em> Equations and code: the model that can be run, tested and acted on.</p>
-        </li>
-      </ol>
-    </section>
-
-    <div class="ramp ramp--up" aria-hidden="true"></div>
-
-    <!-- III. OPERA --------------------------------------------------------- -->
-    <section id="opera" class="section paper" aria-labelledby="opera-h">
-      <header class="section__head">
-        <p class="num">III</p>
-        <h2 id="opera-h" class="display">Opera</h2>
-        <p class="section__intro">What I'm working on.</p>
-      </header>
-      <ol class="works">
-        <li class="work">
-          <span class="glyph glyph--lg glyph--helm" aria-hidden="true"></span>
-          <div>
-            <h3 class="work__t">Homonin</h3>
-            <p class="work__d">A cyber-medical research workspace, built to turn what the body emits into models you can reason with.</p>
-          </div>
-          <a class="work__m" href="https://homonin.com">homonin.com <span aria-hidden="true">↗</span></a>
-        </li>
-        <li class="work">
-          <span class="glyph glyph--lg glyph--d05" aria-hidden="true"></span>
-          <div>
-            <h3 class="work__t">Biodigital twins</h3>
-            <p class="work__d">Mapping which parts of the body can already be computed. The heart and bone are largely solved, the brain is converging, and the cell is still open.</p>
-          </div>
-          <span class="work__m">Research</span>
-        </li>
-        <li class="work">
-          <span class="glyph glyph--lg glyph--d04" aria-hidden="true"></span>
-          <div>
-            <h3 class="work__t">Neural systems &amp; adaptive AI</h3>
-            <p class="work__d">Biologically grounded AI: models of neural systems, and care that adapts to the signal it receives.</p>
-          </div>
-          <span class="work__m">Models</span>
-        </li>
-        <li class="work">
-          <span class="glyph glyph--lg glyph--d03" aria-hidden="true"></span>
-          <div>
-            <h3 class="work__t">Plates</h3>
-            <p class="work__d">A small dither engine that draws my GitHub profile: an 8×8 Bayer matrix on canvas, a hand-written GIF encoder, and a plate that re-renders itself every day.</p>
-          </div>
-          <a class="work__m" href="https://github.com/A12N4V/A12N4V">Source <span aria-hidden="true">↗</span></a>
-        </li>
-      </ol>
-    </section>
-
-    <div class="ramp ramp--down" aria-hidden="true"></div>
-
-    <!-- IV. SYSTEMA -------------------------------------------------------- -->
-    <section id="systema" class="section night" aria-labelledby="systema-h">
-      <header class="section__head">
-        <p class="num">IV</p>
-        <h2 id="systema-h" class="display">Systema</h2>
-        <p class="section__intro">Medicine is a control problem. Above, the work organized as Stafford Beer's <em>Viable System Model</em> (<em>Brain of the Firm</em>, 1972), with Homonin at the center. Below, what the body emits, the formats it arrives in, and where it goes.</p>
-      </header>
-      <figure class="board" tabindex="0" role="group" aria-label="Viable System Model plate, scrollable">
-        <img src="assets/plates/systema.gif" width="1600" height="1000" loading="lazy" alt="Animated Viable System Model. Policy, intelligence, control, coordination, models, research and the environment each send signals into Homonin, which sends feedback back out to each one." />
-      </figure>
-      <figure class="board" tabindex="0" role="group" aria-label="Data flow plate, scrollable">
-        <img src="assets/plates/flvxvs.gif" width="1600" height="960" loading="lazy" alt="Animated data flow. Cardiac, neural, imaging, genome, lab, record and pathway data, each with its file formats, flow into Homonin and out to a digital twin, therapy, care and evidence, with feedback back to every source." />
-      </figure>
-    </section>
-
-    <!-- V. PVLSVS ---------------------------------------------------------- -->
-    <section id="pvlsvs" class="section night" aria-labelledby="pvlsvs-h">
-      <header class="section__head">
-        <p class="num">V</p>
-        <h2 id="pvlsvs-h" class="display">Pvlsvs</h2>
-        <p class="section__intro">A live reading of my <a href="https://github.com/A12N4V">GitHub</a>: contributions as a heartbeat, re-drawn every day by a GitHub Action.</p>
-      </header>
-      <figure class="board" tabindex="0" role="group" aria-label="Live GitHub plate, scrollable">
-        <img src="https://raw.githubusercontent.com/A12N4V/A12N4V/output/a12n4v-pvlsvs.gif" width="1600" height="960" loading="lazy" alt="Live GitHub activity: weekly contributions as an ECG trace, the past year as a dithered calendar, then streaks, repositories, stars, followers and languages." />
-      </figure>
-    </section>
-
-    <div class="ramp ramp--up" aria-hidden="true"></div>
-
-    <!-- VI. CONTACT -------------------------------------------------------- -->
-    <section id="contact" class="section paper contact" aria-labelledby="contact-h">
-      <div class="contact__fig">
-        <img src="assets/img/persona-profilvs.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, turned away." />
-      </div>
-      <div class="contact__text">
-        <p class="num">VI</p>
-        <h2 id="contact-h" class="display">Write to me</h2>
-        <p class="section__intro">About twins, models, Homonin, or anything that closes a loop.</p>
-        <a class="mail" href="mailto:aaarnavsssharma@gmail.com">aaarnavsssharma@gmail.com</a>
-        <ul class="links">
-          <li><a href="https://x.com/neurarnav"><span>X</span>@neurarnav</a></li>
-          <li><a href="https://github.com/A12N4V"><span>GitHub</span>A12N4V</a></li>
-          <li><a href="https://homonin.com"><span>Homonin</span>homonin.com</a></li>
+      <div class="plate__text">
+        <p class="num">II &nbsp;·&nbsp; Persona</p>
+        <h2 id="persona-h" class="display">A mask is a sign.</h2>
+        <p class="plate__lede">It stands for a person without being one. A digital twin works the same way: it looks like the body, it is caused by the body's signals, and it can be acted on in the body's place.</p>
+        <p>I'm an undergraduate at UC Irvine working where medicine meets computation. I treat medicine as a control problem, and models as signs.</p>
+        <ul class="triad" aria-label="Three kinds of sign, after C. S. Peirce">
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-eye" /></svg><b>Icon</b><span>it resembles</span></li>
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-spike" /></svg><b>Index</b><span>it is caused</span></li>
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-triad" /></svg><b>Symbol</b><span>it stands for</span></li>
         </ul>
       </div>
     </section>
+
+    <!-- III. OPERA ----------------------------------------------------- -->
+    <section id="opera" class="plate plate--right" aria-labelledby="opera-h">
+      <figure class="plate__fig">
+        <img src="assets/img/persona-ignis.webp" width="1240" height="1269" loading="lazy" alt="The masked figure, facing forward, lit in orange." />
+      </figure>
+      <div class="plate__text">
+        <p class="num">III &nbsp;·&nbsp; Opera</p>
+        <h2 id="opera-h" class="display">Homonin</h2>
+        <p class="plate__lede">A cyber-medical research workspace, built to turn what the body emits into models you can reason with.</p>
+        <p><a class="btn" href="https://homonin.com">homonin.com <span aria-hidden="true">↗</span></a></p>
+        <ol class="works">
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-body" /></svg><div><b>Biodigital twins</b><span>Mapping which parts of the body can already be computed. The heart and bone are largely solved, the brain is converging, the cell is still open.</span></div></li>
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-neuron" /></svg><div><b>Neural systems &amp; adaptive AI</b><span>Biologically grounded AI: models of neural systems, and care that adapts to the signal it receives.</span></div></li>
+          <li><svg class="ico ico--lg" aria-hidden="true"><use href="#i-loop" /></svg><div><b>Cybernetics</b><span>Feedback before prediction: every model should be steered by what the body does next.</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- IV. HISTORIA: the theme inverts ---------------------------------- -->
+    <section id="historia" class="historia" aria-labelledby="historia-h">
+      <header class="historia__head">
+        <p class="num">IV &nbsp;·&nbsp; Historia</p>
+        <h2 id="historia-h" class="display">From sign to machine</h2>
+        <p class="plate__lede">The lineage this work comes from: signs, then feedback, then computing with the stuff of life, then machines that learn. After 2023 the machines start to dream.</p>
+      </header>
+
+      <div class="historia__body">
+        <div class="stage" aria-hidden="true"><canvas class="stage__cv"></canvas></div>
+
+        <ol class="timeline">
+          <li class="era" data-shape="sign"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-quill" /></svg><p class="era__name">Sema</p><p class="era__sub">the science of signs</p></li>
+          <li class="ev" data-shape="triad"><time>c. 1867</time><h3>Peirce's signs</h3><p>Charles Sanders Peirce begins his theory of signs. A sign can resemble its object (icon), be caused by it (index) or stand for it by convention (symbol).</p></li>
+          <li class="ev" data-shape="arbor"><time>1916</time><h3>Signifier, signified</h3><p>Saussure's <em>Course in General Linguistics</em>, published after his death: the word <em>arbor</em> and the idea of a tree are two sides of one sign.</p></li>
+
+          <li class="era" data-shape="loop"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-loop" /></svg><p class="era__name">Cybernetica</p><p class="era__sub">steering by feedback</p></li>
+          <li class="ev" data-shape="unit"><time>1943</time><h3>The logical neuron</h3><p>McCulloch and Pitts model the neuron as a threshold unit. Nervous systems and logic become one subject.</p></li>
+          <li class="ev" data-shape="loop"><time>1948</time><h3><em>Cybernetics</em></h3><p>Norbert Wiener names the field: control and communication in the animal and the machine.</p></li>
+
+          <li class="era" data-shape="spike"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-helix" /></svg><p class="era__name">Bio-computatio</p><p class="era__sub">computing with the stuff of life</p></li>
+          <li class="ev" data-shape="spike"><time>1952</time><h3>The action potential, in equations</h3><p>Hodgkin and Huxley write the nerve impulse of the squid giant axon as four coupled differential equations.</p></li>
+          <li class="ev" data-shape="turing"><time>1952</time><h3>Morphogenesis</h3><p>Alan Turing shows how two reacting, diffusing chemicals can break symmetry into spots and stripes.</p></li>
+          <li class="ev" data-shape="loop2"><time>1972</time><h3><em>Brain of the Firm</em></h3><p>Stafford Beer's Viable System Model: any system that survives has the same five-part structure of control.</p></li>
+          <li class="ev" data-shape="helix"><time>1994</time><h3>Computing with DNA</h3><p>Leonard Adleman solves a seven-node Hamiltonian path problem in a test tube, with strands of DNA as the processor.</p></li>
+          <li class="ev" data-shape="helix"><time>2003</time><h3>The genome, read</h3><p>The Human Genome Project is declared complete.</p></li>
+
+          <li class="era" data-shape="net"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-net" /></svg><p class="era__name">Machina</p><p class="era__sub">machines that learn</p></li>
+          <li class="ev" data-shape="net"><time>2012</time><h3>AlexNet</h3><p>A deep convolutional network wins ImageNet by a wide margin, and deep learning takes over vision.</p></li>
+          <li class="ev" data-shape="eye"><time>2015</time><h3>DeepDream</h3><p>Run a vision network backwards and it starts to see dogs and eyes in everything. The first machine hallucinations are pictures.</p></li>
+          <li class="ev" data-shape="attn"><time>2017</time><h3>Attention</h3><p>"Attention Is All You Need" introduces the transformer.</p></li>
+          <li class="ev" data-shape="fold"><time>2020</time><h3>Protein folding</h3><p>AlphaFold 2 predicts protein structures at close to experimental accuracy at CASP14.</p></li>
+          <li class="ev" data-shape="attn"><time>2022</time><h3>ChatGPT</h3><p>Language models reach everyone.</p></li>
+
+          <li class="ev ev--dream" data-shape="dream" data-dream><time>2023</time><h3>Hallucinate</h3><p>Cambridge Dictionary's word of the year: when an artificial intelligence hallucinates, it produces false information. The machines begin to dream out loud.</p></li>
+          <li class="ev ev--dream" data-shape="dream" data-dream><time>2024</time><h3>The prize for structure</h3><p>The Nobel Prize in Chemistry goes to David Baker, Demis Hassabis and John Jumper for protein design and structure prediction. In physics, to John Hopfield and Geoffrey Hinton for the foundations of neural networks.</p></li>
+          <li class="ev ev--dream" data-shape="dream" data-dream><time>2025</time><h3>Signal or sign?</h3><p>Models write, see, speak and act. What they produce is a sign of the world, and sometimes a sign of nothing at all.</p></li>
+          <li class="ev ev--wake" data-shape="body" data-wake><time>MMXXVI</time><h3>Homonin</h3><p>Grounding the model in the body. Every sign a twin produces should be checked against the signal the body gives back.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- V. CONTACT: awake again ----------------------------------------- -->
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <p class="num">V &nbsp;·&nbsp; Contact</p>
+      <h2 id="contact-h" class="display">Write to me</h2>
+      <p class="plate__lede">About twins, models, Homonin, or anything that closes a loop.</p>
+      <a class="mail" href="mailto:aaarnavsssharma@gmail.com">aaarnavsssharma@gmail.com</a>
+      <ul class="links">
+        <li><a href="https://x.com/neurarnav"><span>X</span>@neurarnav</a></li>
+        <li><a href="https://github.com/A12N4V"><span>GitHub</span>A12N4V</a></li>
+        <li><a href="https://homonin.com"><span>Homonin</span>homonin.com</a></li>
+      </ul>
+    </section>
   </main>
 
-  <footer class="foot night">
+  <footer class="foot">
     <p class="foot__motto">Corpvs · Signvm · Machina</p>
-    <p class="foot__meta">© MMXXVI Arnav Sharma · UC Irvine · Set in Italiana, Crimson Pro and JetBrains Mono</p>
+    <p class="foot__meta">© MMXXVI Arnav Sharma · UC Irvine</p>
   </footer>
 
+  <canvas class="dream" aria-hidden="true"></canvas>
   <script src="main.js" defer></script>
 </body>
 </html>
