@@ -125,16 +125,26 @@ a:hover { color: var(--acc-ink); }
 .hero__foot .eyebrow { margin: 0; color: var(--ink-mut); }
 .hero__foot .lede { margin: 0; font-size: clamp(24px, 2.4vw, 34px); color: var(--ink-2); }
 .hero__links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-/* below 1000px the name stacks above the figure instead of flanking it */
+/* below 1000px the name sits on top and the hood rises into it: the same
+   inverting intersection as on wide screens, stacked instead of flanking.
+   The name is bottom-aligned in the first row and the figure pulled up by a
+   fixed share of the name's size, so the overlap holds on any screen height */
 @media (max-width: 1000px) {
-  .hero__first { top: 70px; }
-  .hero__last { top: calc(70px + 0.86em); }
-  .hero__fig { width: min(92vw, 54svh); }
+  .hero { --nf: clamp(60px, 19.5vw, 200px); grid-template-rows: 1fr auto auto; padding-top: 60px; }
+  .hero__name {
+    position: relative; inset: auto; align-self: end; width: 100%; max-width: var(--maxw); margin: 0;
+    font-size: var(--nf); z-index: 2; color: #fff; mix-blend-mode: difference;
+  }
+  .hero__first, .hero__last { position: static; display: block; }
+  .hero__last { text-align: right; }
+  .hero__fig { width: min(92vw, 52svh, 640px); margin-top: calc(var(--nf) * -1.02); }
 }
 @media (max-width: 700px) {
-  .hero { padding-top: 64px; }
-  .hero__fig { width: min(92vw, 76svh); }
+  .hero__fig { width: min(92vw, 46svh); }
   .hero__foot { flex-direction: column; align-items: flex-start; }
+  /* the three links share one row, equal widths */
+  .hero__links { width: 100%; flex-wrap: nowrap; gap: 8px; }
+  .hero__links .btn { flex: 1 1 0; min-width: 0; justify-content: center; padding: 12px 6px; font-size: 12px; letter-spacing: 0.06em; white-space: nowrap; }
 }
 
 /* ---------- II. origins: a pinned stage; main.js sketches each city in ---------- */
@@ -290,4 +300,5 @@ a:hover { color: var(--acc-ink); }
   .city__at { margin-top: 2px; }
   .origins__stage::after { height: 90px; }
   .hero__fig { width: min(60vw, 70svh); }
+  .hero { --nf: min(19.5vw, 24svh); }
 }
