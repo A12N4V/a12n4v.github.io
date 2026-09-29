@@ -25,9 +25,10 @@
     <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 9 L10 36 H38 Z" /><circle cx="24" cy="9" r="4.2" /><circle cx="10" cy="36" r="4.2" /><circle cx="38" cy="36" r="4.2" /></svg>A12N4V</a>
     <nav class="bar__nav" aria-label="Sections">
       <a href="#origins"><i>II</i> Origins</a>
-      <a href="#opera"><i>III</i> Opera</a>
-      <a href="#post"><i>IV</i> Post-AI</a>
-      <a href="#contact"><i>V</i> Contact</a>
+      <a href="#minds"><i>III</i> Inspirations</a>
+      <a href="#opera"><i>IV</i> Opera</a>
+      <a href="#post"><i>V</i> Post-AI</a>
+      <a href="#contact"><i>VI</i> Contact</a>
     </nav>
   </header>
 
@@ -49,31 +50,113 @@
       </div>
     </section>
 
-    <!-- II. ORIGINS -------------------------------------------------------- -->
+    <!-- II. ORIGINS: three sketches, drawn in as you scroll ---------------- -->
     <section id="origins" class="origins" aria-labelledby="origins-h">
-      <header class="head">
-        <p class="num">II &nbsp;·&nbsp; Origins</p>
-        <h2 id="origins-h" class="display">Delhi to San Francisco</h2>
-      </header>
-      <div class="cities">
-        <figure class="city">
-          <img src="assets/img/delhi.svg" width="800" height="480" loading="lazy" alt="Engraving of the Jama Masjid in Delhi: three domes between two minarets." />
-          <p class="city__name">Delhi</p>
-          <p class="city__at">28.61° N &nbsp;77.21° E</p>
-        </figure>
-        <div class="cities__arrow" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M2 12 H114 M104 4 L114 12 L104 20" /></svg></div>
-        <figure class="city">
-          <img src="assets/img/sf.svg" width="800" height="480" loading="lazy" alt="Engraving of the Golden Gate Bridge in San Francisco, rising out of fog." />
-          <p class="city__name">San Francisco</p>
-          <p class="city__at">37.77° N &nbsp;122.42° W</p>
-        </figure>
+      <div class="origins__stage">
+        <div class="origins__plates">
+          <img class="is-on" src="assets/img/origins/delhi.jpg" width="1536" height="1024" alt="Pencil sketch of India Gate in Delhi, in mist, with people walking down a wet avenue lined with trees and lamps." />
+          <img src="assets/img/origins/irvine.jpg" width="1536" height="1024" loading="lazy" alt="Pencil sketch of a glass campus building in Irvine, with palm trees and hills behind." />
+          <img src="assets/img/origins/sf.jpg" width="1536" height="1024" loading="lazy" alt="Pencil sketch of the Golden Gate Bridge in fog, with the San Francisco skyline behind and a sailboat on the bay." />
+        </div>
+        <canvas class="origins__cv" aria-hidden="true"></canvas>
+        <header class="origins__head">
+          <p class="num">II &nbsp;·&nbsp; Origins</p>
+          <h2 id="origins-h" class="origins__h">Delhi, Irvine, San Francisco</h2>
+        </header>
+        <ol class="origins__route">
+          <li class="is-on"><span class="city__name">Delhi</span><span class="city__at">28.61° N &nbsp;77.21° E</span></li>
+          <li><span class="city__name">Irvine</span><span class="city__at">33.64° N &nbsp;117.84° W</span></li>
+          <li><span class="city__name">San Francisco</span><span class="city__at">37.77° N &nbsp;122.42° W</span></li>
+        </ol>
       </div>
     </section>
 
-    <!-- III. OPERA: the theme inverts --------------------------------------- -->
+    <!-- III. INSPIRATIONS ------------------------------------------------ -->
+    <section id="minds" class="minds" aria-labelledby="minds-h">
+      <header class="head">
+        <p class="num">III &nbsp;·&nbsp; Inspirations</p>
+        <h2 id="minds-h" class="display">The lineage</h2>
+        <p class="lede-2">Cybernetics, semiotics and the mathematics of form: the people this work stands on. Each is drawn as a small machine, and most of the machines recurse.</p>
+      </header>
+
+      <div class="group">
+        <p class="group__no">i</p>
+        <h3 class="group__t">Cybernetics</h3>
+      </div>
+      <div class="minds__grid">
+        <article class="mind" data-emb="beer">
+          <canvas class="mind__art" role="img" aria-label="The Viable System Model, zooming forever into one of its operations, which is itself a viable system"></canvas>
+          <div class="mind__body"><p class="mind__meta">1926 – 2002</p><h4 class="mind__n">Stafford Beer</h4><p class="mind__q">“The purpose of a system is what it does.”</p><p class="mind__w">Brain of the Firm, 1972</p></div>
+        </article>
+        <article class="mind" data-emb="wiener">
+          <canvas class="mind__art" role="img" aria-label="A feedback loop, with a signal circling it and the damped response it produces"></canvas>
+          <div class="mind__body"><p class="mind__meta">1894 – 1964</p><h4 class="mind__n">Norbert Wiener</h4><p class="mind__q">“We are not stuff that abides, but patterns that perpetuate themselves.”</p><p class="mind__w">Cybernetics, 1948</p></div>
+        </article>
+        <article class="mind" data-emb="ashby">
+          <canvas class="mind__art" role="img" aria-label="Ashby's homeostat: four coupled units whose needles search for a stable state"></canvas>
+          <div class="mind__body"><p class="mind__meta">1903 – 1972</p><h4 class="mind__n">W. Ross Ashby</h4><p class="mind__q">“Only variety can destroy variety.”</p><p class="mind__w">An Introduction to Cybernetics, 1956</p></div>
+        </article>
+        <article class="mind" data-emb="foerster">
+          <canvas class="mind__art" role="img" aria-label="Squares nested inside squares, turning toward a fixed point: an eigenform"></canvas>
+          <div class="mind__body"><p class="mind__meta">1911 – 2002</p><h4 class="mind__n">Heinz von Foerster</h4><p class="mind__q">“Act always so as to increase the number of choices.”</p><p class="mind__w">Observing Systems, 1981</p></div>
+        </article>
+      </div>
+
+      <div class="group">
+        <p class="group__no">ii</p>
+        <h3 class="group__t">Semiotics</h3>
+      </div>
+      <div class="minds__grid">
+        <article class="mind" data-emb="peirce">
+          <canvas class="mind__art" role="img" aria-label="Peirce's triad of sign, object and interpretant, where each interpretant becomes the next sign, without end"></canvas>
+          <div class="mind__body"><p class="mind__meta">1839 – 1914</p><h4 class="mind__n">Charles S. Peirce</h4><p class="mind__q">“We think only in signs.”</p><p class="mind__w">Collected Papers, 1931 – 58</p></div>
+        </article>
+        <article class="mind" data-emb="saussure">
+          <canvas class="mind__art" role="img" aria-label="Saussure's sign: the concept of a tree above the bar, the word arbor below"></canvas>
+          <div class="mind__body"><p class="mind__meta">1857 – 1913</p><h4 class="mind__n">Ferdinand de Saussure</h4><p class="mind__q">“In language there are only differences.”</p><p class="mind__w">Course in General Linguistics, 1916</p></div>
+        </article>
+        <article class="mind" data-emb="uexkull">
+          <canvas class="mind__art" role="img" aria-label="Uexküll's functional circle: perception runs from the object to the subject, action runs back"></canvas>
+          <div class="mind__body"><p class="mind__meta">1864 – 1944</p><h4 class="mind__n">Jakob von Uexküll</h4><p class="mind__q">Every organism lives inside its own Umwelt, a world made of the signs it can read.</p><p class="mind__w">A Foray into the Worlds of Animals and Humans, 1934</p></div>
+        </article>
+        <article class="mind" data-emb="eco">
+          <canvas class="mind__art" role="img" aria-label="A labyrinth carving itself, then solving itself"></canvas>
+          <div class="mind__body"><p class="mind__meta">1932 – 2016</p><h4 class="mind__n">Umberto Eco</h4><p class="mind__q">“Semiotics is in principle the discipline studying everything which can be used in order to lie.”</p><p class="mind__w">A Theory of Semiotics, 1976</p></div>
+        </article>
+      </div>
+
+      <div class="group">
+        <p class="group__no">iii</p>
+        <h3 class="group__t">Form &amp; computation</h3>
+      </div>
+      <div class="minds__grid">
+        <article class="mind" data-emb="turing">
+          <canvas class="mind__art" role="img" aria-label="A reaction-diffusion system growing spots that divide"></canvas>
+          <div class="mind__body"><p class="mind__meta">1912 – 1954</p><h4 class="mind__n">Alan Turing</h4><p class="mind__q">Two chemicals, reacting and diffusing, are enough to break symmetry into spots and stripes.</p><p class="mind__w">The Chemical Basis of Morphogenesis, 1952</p></div>
+        </article>
+        <article class="mind" data-emb="neumann">
+          <canvas class="mind__art" role="img" aria-label="A one-dimensional cellular automaton drawing Sierpinski triangles"></canvas>
+          <div class="mind__body"><p class="mind__meta">1903 – 1957</p><h4 class="mind__n">John von Neumann</h4><p class="mind__q">A machine that carries its own description can build a copy of itself.</p><p class="mind__w">Theory of Self-Reproducing Automata, 1966</p></div>
+        </article>
+        <article class="mind" data-emb="darcy">
+          <canvas class="mind__art" role="img" aria-label="A nautilus shell's chambers growing along a logarithmic spiral, zooming without end"></canvas>
+          <div class="mind__body"><p class="mind__meta">1860 – 1948</p><h4 class="mind__n">D'Arcy Thompson</h4><p class="mind__q">The form of an object is “a diagram of forces”.</p><p class="mind__w">On Growth and Form, 1917</p></div>
+        </article>
+        <article class="mind" data-emb="cajal">
+          <canvas class="mind__art" role="img" aria-label="A pyramidal neuron growing its dendrites by recursive branching"></canvas>
+          <div class="mind__body"><p class="mind__meta">1852 – 1934</p><h4 class="mind__n">Santiago Ramón y Cajal</h4><p class="mind__q">Called pyramidal neurons “the mysterious butterflies of the soul”.</p><p class="mind__w">Textura del sistema nervioso, 1899 – 1904</p></div>
+        </article>
+      </div>
+
+      <p class="shelf"><span>Also on the shelf</span> Gregory Bateson · Humberto Maturana &amp; Francisco Varela · Gordon Pask · Warren McCulloch &amp; Walter Pitts · Claude Shannon · Thomas Sebeok · Roland Barthes · Douglas Hofstadter</p>
+    </section>
+
+    <div class="fade" data-from="#ebe6dc" data-to="#000000" aria-hidden="true"><canvas></canvas></div>
+
+    <!-- IV. OPERA: the theme inverts --------------------------------------- -->
     <section id="opera" class="opera" aria-labelledby="opera-h">
       <header class="head">
-        <p class="num">III &nbsp;·&nbsp; Opera</p>
+        <p class="num">IV &nbsp;·&nbsp; Opera</p>
         <h2 id="opera-h" class="display">The work</h2>
         <p class="lede-2">From the first questions in Delhi, to language models in the clinic, to the niche formats medicine actually runs on.</p>
       </header>
@@ -88,8 +171,8 @@
         <div><h3 class="era__t">Integrations</h3><p class="era__d">Language models, wired into the clinic.</p></div>
       </div>
       <div class="cards">
-        <article class="card" data-art="assets/art/vesalius-brain.jpg" data-ink="#9fd08a" data-crop="0.02 0.02 0.96 0.96">
-          <canvas class="card__art" role="img" aria-label="Vesalius, the base of the brain, De humani corporis fabrica, 1543, dithered"></canvas>
+        <article class="card" data-art="assets/art/woman-with-a-hat.jpg" data-ink="#9fd08a" data-crop="0 0.02 1 0.7">
+          <canvas class="card__art" role="img" aria-label="Matisse, Woman with a Hat, 1905, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--building">Building</span><span>Clinical AI</span></p>
             <h4 class="card__t">Anamnesis</h4>
@@ -97,8 +180,8 @@
             <p class="card__fmt">FHIR R4 · SNOMED CT · ICD-10</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/vesalius-muscle.jpg" data-ink="#e8a3b8" data-crop="0.18 0.02 0.64 0.5">
-          <canvas class="card__art" role="img" aria-label="Vesalius, the muscle man, De humani corporis fabrica, 1543, dithered"></canvas>
+        <article class="card" data-art="assets/art/the-scream.jpg" data-ink="#e8a3b8" data-crop="0 0.12 1 0.62">
+          <canvas class="card__art" role="img" aria-label="Munch, The Scream, 1893, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--next">Next</span><span>Documentation</span></p>
             <h4 class="card__t">Palimpsest</h4>
@@ -113,8 +196,8 @@
         <div><h3 class="era__t">The body, in formats</h3><p class="era__d">cDNA and FASTQ, VCF, ECG, EEG, DICOM: niche medical data, taken seriously.</p></div>
       </div>
       <div class="cards">
-        <article class="card" data-art="assets/art/cajal-cortex.jpg" data-ink="#f97f3a" data-crop="0 0 1 1">
-          <canvas class="card__art" role="img" aria-label="Cajal, layers of the cerebral cortex, dithered"></canvas>
+        <article class="card" data-art="assets/art/great-wave.jpg" data-ink="#8fc3e0" data-crop="0.02 0 0.7 1">
+          <canvas class="card__art" role="img" aria-label="Hokusai, The Great Wave off Kanagawa, around 1831, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--building">Building</span><span>Genomics</span></p>
             <h4 class="card__t">Transcripta</h4>
@@ -122,8 +205,8 @@
             <p class="card__fmt">FASTQ · BAM · GTF · h5ad · MINSEQE</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/cajal-cortex-2.jpg" data-ink="#d9c77a" data-crop="0 0.05 1 0.9">
-          <canvas class="card__art" role="img" aria-label="Cajal, cortical neurons, dithered"></canvas>
+        <article class="card" data-art="assets/art/composition-vii.jpg" data-ink="#d9c77a">
+          <canvas class="card__art" role="img" aria-label="Kandinsky, Composition VII, 1913, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--research">Research</span><span>Rare disease</span></p>
             <h4 class="card__t">Varia</h4>
@@ -131,8 +214,8 @@
             <p class="card__fmt">VCF · HGVS · ClinVar · HPO</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/gray-heart.jpg" data-ink="#e0655a" data-crop="0 0 1 1">
-          <canvas class="card__art" role="img" aria-label="The heart, from Gray's Anatomy, dithered"></canvas>
+        <article class="card" data-art="assets/art/minotaur.jpg" data-ink="#e0655a">
+          <canvas class="card__art" role="img" aria-label="Turner, The Shipwreck of the Minotaur, around 1810, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--building">Building</span><span>Cardiology</span></p>
             <h4 class="card__t">Sinoatria</h4>
@@ -140,8 +223,8 @@
             <p class="card__fmt">WFDB · EDF · HL7 aECG</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/cajal-purkinje.jpg" data-ink="#b99be0" data-crop="0.05 0.02 0.9 0.8">
-          <canvas class="card__art" role="img" aria-label="Cajal, Purkinje cell of the cerebellum, 1899, dithered"></canvas>
+        <article class="card" data-art="assets/art/udnie.jpg" data-ink="#b99be0">
+          <canvas class="card__art" role="img" aria-label="Picabia, Udnie, 1913, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--research">Research</span><span>Neurology</span></p>
             <h4 class="card__t">Neuroglyph</h4>
@@ -149,8 +232,8 @@
             <p class="card__fmt">EDF · BIDS · NWB</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/vesalius-skull.jpg" data-ink="#8fb8c9" data-crop="0 0 1 1">
-          <canvas class="card__art" role="img" aria-label="Vesalius, the skull, De humani corporis fabrica, 1543, dithered"></canvas>
+        <article class="card" data-art="assets/art/composition-xiii.jpg" data-ink="#f97f3a" data-invert>
+          <canvas class="card__art" role="img" aria-label="Theo van Doesburg, Composition XIII, 1918, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--research">Research</span><span>Imaging</span></p>
             <h4 class="card__t">Tomographia</h4>
@@ -165,8 +248,8 @@
         <div><h3 class="era__t">Now</h3><p class="era__d">Everything above, in one place.</p></div>
       </div>
       <div class="cards">
-        <article class="card card--wide" data-art="assets/art/vesalius-muscle.jpg" data-ink="#e8e2d9" data-crop="0 0 1 1" data-hallucinate>
-          <canvas class="card__art" role="img" aria-label="Vesalius, the muscle man, De humani corporis fabrica, 1543, dithered"></canvas>
+        <article class="card card--wide" data-art="assets/art/starry-night.jpg" data-ink="#e8e2d9" data-hallucinate>
+          <canvas class="card__art" role="img" aria-label="Van Gogh, The Starry Night, 1889, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--live">Live</span><span>Workspace</span></p>
             <h4 class="card__t">Homonin</h4>
@@ -178,19 +261,21 @@
       </div>
     </section>
 
-    <!-- IV. POST-AI: the site dissolves into the dream ---------------------- -->
+    <!-- V. POST-AI: the site dissolves into the dream ----------------------- -->
     <section id="post" class="post" aria-labelledby="post-h">
       <div class="post__stick">
-        <p class="num">IV &nbsp;·&nbsp; Post-AI</p>
+        <p class="num">V &nbsp;·&nbsp; Post-AI</p>
         <h2 id="post-h" class="display" data-hallucinate>After the models</h2>
         <p class="post__p" data-hallucinate>Models can now write, see and speak. What they can't do on their own is stay true to the body. The work above is built to keep that loop closed.</p>
       </div>
     </section>
 
-    <!-- V. CONTACT: awake --------------------------------------------------- -->
+    <div class="fade fade--wake" data-from="#000000" data-to="#ebe6dc" aria-hidden="true"><canvas></canvas></div>
+
+    <!-- VI. CONTACT: awake -------------------------------------------------- -->
     <section id="contact" class="contact" aria-labelledby="contact-h">
       <div class="contact__in">
-      <p class="num">V &nbsp;·&nbsp; Contact</p>
+      <p class="num">VI &nbsp;·&nbsp; Contact</p>
       <h2 id="contact-h" class="display">Write to me</h2>
       <a class="mail" href="mailto:aaarnavsssharma@gmail.com">aaarnavsssharma@gmail.com</a>
       <ul class="links">
@@ -200,11 +285,12 @@
       </ul>
       </div>
     </section>
+    <div class="fade fade--foot" data-from="#ebe6dc" data-to="#000000" aria-hidden="true"><canvas></canvas></div>
   </main>
 
   <footer class="foot">
     <p class="foot__motto">Corpvs · Signvm · Machina</p>
-    <p class="foot__meta">© MMXXVI Arnav Sharma · Plates after Vesalius (1543), Cajal and Gray, in the public domain</p>
+    <p class="foot__meta">© MMXXVI Arnav Sharma · Paintings by Van Gogh, Munch, Hokusai, Kandinsky, Turner, Picabia, Matisse and Van Doesburg, in the public domain · Dream frames from Google's DeepDream notebook (2015, Apache 2.0)</p>
   </footer>
 
   <canvas class="dream" aria-hidden="true"></canvas>
