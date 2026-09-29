@@ -7,11 +7,16 @@ A single static page with no build step: `index.html`, `style.css`, `main.js`.
 1. **I. Hero, on beige.** The name set around the persona. This is the only masked image on the page.
 2. **II. Origins.** Delhi, then Irvine, then San Francisco. A pinned stage where each pencil sketch is drawn in by a WebGL shader as you scroll: dark strokes first, then shading, along a flowing front with hatching ahead of it and a dithered edge. Delhi also draws itself in over about four seconds when the section arrives.
 3. **III. Inspirations.** Twelve thinkers in cybernetics, semiotics and form. Each is drawn as a small generative machine, dithered live in ink on paper. Most of them recurse, for example Beer's viable system inside a viable system, Peirce's interpretant becoming the next sign, and a Sierpinski automaton for von Neumann.
-4. **IV. Opera, inverted to black.** Project cards in four eras. Each card is a public-domain painting, dithered with an 8×8 Bayer matrix in the card's own ink. The dither develops in when the card first scrolls into view. The last era is Homonin and three of its instruments, drawn live instead of painted:
-   - **Cardiacity:** an ECG monitor sweep with a tachogram.
-   - **Sema:** eight EEG channels and a spectrogram.
-   - **Pranoma:** a food web that finds its most critical organism, removes it, and lets the dependents fade.
-5. **V. Post-AI.** The viewport dissolves in blocks into Google's 2015 DeepDream frames, which are zoomed and cross-faded with the scroll and posterised through the same dither. The text hallucinates, then the page wakes up.
+4. **IV. Opera, inverted to black.** Four eras, with Homonin last:
+   - **I. The questions:** text only.
+   - **II. Integrations:** Semaphora (mail) and Kula (version control with model context).
+   - **III. Works:**
+     - Sema (EEG), Cardiacity (ECG) and Pranoma (organism criticality in a food web), each drawn live in its card's ink.
+     - Homonin's Discover, Database and Notes.
+   - **IV. Now:** Homonin.
+
+   The other cards use public-domain paintings, dithered with an 8×8 Bayer matrix. The dither develops in when a card first scrolls into view.
+5. **V. Post-AI.** The title, "The post-AI era", holds clean for a moment. Then the viewport dissolves in blocks into Google's 2015 DeepDream frames, which are zoomed and cross-faded with the scroll and posterised through the same dither. The text hallucinates, then the page wakes up.
 6. **VI. Contact.**
 
 Bayer-dithered seams join the light and dark sections.

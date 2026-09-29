@@ -6,7 +6,8 @@
 // 3. Project cards: public-domain paintings, dithered with an 8x8 Bayer matrix
 //    in each card's own ink, on black.
 // 4. Seams between light and dark sections are Bayer gradients.
-// 5. Post-AI: the page dissolves in blocks into Google's 2015 DeepDream frames,
+// 5. Post-AI: a clean title, "The post-AI era"; then the page dissolves in
+//    blocks into Google's 2015 DeepDream frames,
 //    zoomed and cross-faded with the scroll, posterised through the same dither.
 //    Text hallucinates, then the page wakes up at the contact.
 (() => {
@@ -750,7 +751,6 @@ void main() {
 
   // ---- 6. the dream ---------------------------------------------------------
   const post = document.getElementById('post');
-  const opera = document.getElementById('opera');
   const dc = document.querySelector('.dream');
   if (!post || !dc) return;
   // Frames from Google's DeepDream notebook (2015): the sky, then the sky dreamt
@@ -802,8 +802,9 @@ void main() {
   function state() {
     const vh = innerHeight, r = post.getBoundingClientRect();
     const q = (-r.top) / Math.max(1, r.height - vh);              // 0 when the section reaches the top, 1 when it leaves
-    const dissolve = smooth(-0.12, 0.3, q) * (1 - smooth(0.86, 1.0, q));   // starts once the last cards have mostly left
-    return { q, dissolve, dream: smooth(0.1, 0.45, q) * (1 - smooth(0.86, 1.0, q)) };
+    // the title "The post-AI era" holds, clean, before anything starts to go
+    const dissolve = smooth(0.14, 0.42, q) * (1 - smooth(0.86, 1.0, q));
+    return { q, dissolve, dream: smooth(0.24, 0.55, q) * (1 - smooth(0.86, 1.0, q)) };
   }
 
   let raf = 0, active = false;
@@ -813,14 +814,12 @@ void main() {
     const amount = Math.max(dissolve * 0.6, dream);
     root.style.setProperty('--dream', amount.toFixed(3));
     hallucinate(amount, t);
-    // the page itself smears as it goes
-    opera.style.filter = dissolve > 0.01 ? `blur(${(dissolve * 3).toFixed(2)}px) saturate(${(1 + dissolve * 2).toFixed(2)}) hue-rotate(${(dissolve * 140).toFixed(0)}deg)` : '';
     if (dissolve > 0.003 && initGL()) {
       const w = Math.round(innerWidth * 0.5), h = Math.round(innerHeight * 0.5);
       if (dc.width !== w || dc.height !== h) { dc.width = w; dc.height = h; gl.viewport(0, 0, w, h); }
       if (ftex.length) {
         // walk the frames with the scroll, zooming into each as the next fades up
-        const fq = clamp((q + 0.1) / 0.85) * (ftex.length - 1), i = Math.min(ftex.length - 2, Math.floor(fq)), x = fq - i;
+        const fq = clamp((q - 0.14) / 0.7) * (ftex.length - 1), i = Math.min(ftex.length - 2, Math.floor(fq)), x = fq - i;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, ftex[i]);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, ftex[i + 1]);
         gl.uniform1f(uni.u_x, smooth(0.45, 1, x)); gl.uniform1f(uni.u_z0, 1 + 0.45 * x); gl.uniform1f(uni.u_z1, 1 + 0.1 * x); gl.uniform1f(uni.u_hf, 1);

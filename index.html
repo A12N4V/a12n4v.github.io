@@ -6,7 +6,7 @@
   <title>Arnav Sharma · The body, computed</title>
   <meta name="description" content="Arnav Sharma works where medicine meets computation: biodigital twins, medical AI and cybernetics. Building Homonin, a cyber-medical research workspace." />
   <meta name="theme-color" content="#ebe6dc" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="data:," />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://a12n4v.github.io/" />
   <meta property="og:title" content="Arnav Sharma · The body, computed" />
@@ -22,7 +22,7 @@
   <a class="skip" href="#origins">Skip to content</a>
 
   <header class="bar">
-    <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 9 L10 36 H38 Z" /><circle cx="24" cy="9" r="4.2" /><circle cx="10" cy="36" r="4.2" /><circle cx="38" cy="36" r="4.2" /></svg>A12N4V</a>
+    <a class="bar__mark" href="#top" aria-label="Arnav Sharma, top of page">A12N4V</a>
     <nav class="bar__nav" aria-label="Sections">
       <a href="#origins"><i>II</i> Origins</a>
       <a href="#minds"><i>III</i> Inspirations</a>
@@ -169,7 +169,7 @@
       <header class="head">
         <p class="num">IV &nbsp;·&nbsp; Opera</p>
         <h2 id="opera-h" class="display">The work</h2>
-        <p class="lede-2">From the first questions in Delhi, to language models in the clinic, to the niche formats medicine actually runs on.</p>
+        <p class="lede-2">From the first questions in Delhi, to language models wired into everyday tools, to instruments for living systems, to Homonin.</p>
       </header>
 
       <div class="era">
@@ -179,115 +179,113 @@
 
       <div class="era">
         <p class="era__no">II</p>
-        <div><h3 class="era__t">Integrations</h3><p class="era__d">Language models, wired into the clinic.</p></div>
+        <div><h3 class="era__t">Integrations</h3><p class="era__d">Language models, wired into the tools people already live in.</p></div>
       </div>
       <div class="cards">
-        <article class="card" data-art="assets/art/woman-with-a-hat.jpg" data-ink="#9fd08a" data-crop="0 0.02 1 0.7">
-          <canvas class="card__art" role="img" aria-label="Matisse, Woman with a Hat, 1905, dithered"></canvas>
+        <article class="card" data-art="assets/art/great-wave.jpg" data-ink="#8fc3e0" data-crop="0.02 0 0.7 1">
+          <canvas class="card__art" role="img" aria-label="Hokusai, The Great Wave off Kanagawa, around 1831, dithered"></canvas>
           <div class="card__body">
-            <p class="card__meta"><span class="status status--building">Building</span><span>Clinical AI</span></p>
-            <h4 class="card__t">Anamnesis</h4>
-            <p class="card__d">Clinical intake by conversation. A language model interviews the patient and writes a structured history, with every field traceable to what was said.</p>
-            <p class="card__fmt">FHIR R4 · SNOMED CT · ICD-10</p>
+            <p class="card__meta"><span>Mail</span></p>
+            <h4 class="card__t">Semaphora</h4>
+            <p class="card__d">A mailing site with a model in the loop: mail written, sorted and answered alongside a language model.</p>
+            <p class="card__fmt">Mail · Language models</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/the-scream.jpg" data-ink="#e8a3b8" data-crop="0 0.12 1 0.62">
-          <canvas class="card__art" role="img" aria-label="Munch, The Scream, 1893, dithered"></canvas>
+        <article class="card" data-art="assets/art/composition-vii.jpg" data-ink="#d9c77a">
+          <canvas class="card__art" role="img" aria-label="Kandinsky, Composition VII, 1913, dithered"></canvas>
           <div class="card__body">
-            <p class="card__meta"><span class="status status--next">Next</span><span>Documentation</span></p>
-            <h4 class="card__t">Palimpsest</h4>
-            <p class="card__d">Ambient notes that show their sources. The visit becomes a note, and each sentence links back to the moment in the audio it came from.</p>
-            <p class="card__fmt">WAV · HL7 v2 · FHIR DocumentReference</p>
+            <p class="card__meta"><span>Version control</span></p>
+            <h4 class="card__t">Kula</h4>
+            <p class="card__d">A replacement for git that keeps model context with the code, so every repository can hand a model what it needs to work on it.</p>
+            <p class="card__fmt">Version control · Model context</p>
           </div>
         </article>
       </div>
 
       <div class="era">
         <p class="era__no">III</p>
-        <div><h3 class="era__t">The body, in formats</h3><p class="era__d">cDNA and FASTQ, VCF, DICOM: niche medical data, taken seriously.</p></div>
+        <div><h3 class="era__t">Works</h3><p class="era__d">Instruments for reading living systems: the brain, the heart, an ecosystem, and the literature about all of them.</p></div>
       </div>
       <div class="cards">
-        <article class="card" data-art="assets/art/great-wave.jpg" data-ink="#8fc3e0" data-crop="0.02 0 0.7 1">
-          <canvas class="card__art" role="img" aria-label="Hokusai, The Great Wave off Kanagawa, around 1831, dithered"></canvas>
+        <article class="card card--mod" data-emb="sema" data-ink="#b99be0">
+          <canvas class="card__art" role="img" aria-label="Eight channels of EEG scrolling past, with a spectrogram below; now and then an event crosses every channel"></canvas>
           <div class="card__body">
-            <p class="card__meta"><span class="status status--building">Building</span><span>Genomics</span></p>
-            <h4 class="card__t">Transcripta</h4>
-            <p class="card__d">From cDNA library to published dataset. Raw FASTQ in; aligned, quantified, annotated and FAIR-packaged for GEO and SRA out, with provenance on every step.</p>
-            <p class="card__fmt">FASTQ · BAM · GTF · h5ad · MINSEQE</p>
+            <p class="card__meta"><span>Neurology</span></p>
+            <h4 class="card__t">Sema</h4>
+            <p class="card__d">EEG analysis: rhythms, spectra and events across channels, read as signs of what the brain is doing.</p>
+            <p class="card__fmt">EDF · BIDS · NWB</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/composition-vii.jpg" data-ink="#d9c77a">
-          <canvas class="card__art" role="img" aria-label="Kandinsky, Composition VII, 1913, dithered"></canvas>
+        <article class="card card--mod" data-emb="cardiacity" data-ink="#e0655a" data-acc="#e8e2d9">
+          <canvas class="card__art" role="img" aria-label="A live ECG trace sweeping across a monitor, with each R peak marked and the beat-to-beat intervals plotted below"></canvas>
           <div class="card__body">
-            <p class="card__meta"><span class="status status--research">Research</span><span>Rare disease</span></p>
-            <h4 class="card__t">Varia</h4>
-            <p class="card__d">Rare-disease variant interpretation: a VCF in, ranked candidates out, each with its ACMG evidence written down.</p>
-            <p class="card__fmt">VCF · HGVS · ClinVar · HPO</p>
+            <p class="card__meta"><span>Cardiology</span></p>
+            <h4 class="card__t">Cardiacity</h4>
+            <p class="card__d">The heart as a signal. ECG in; rhythm, intervals and variability out, each tied back to the beat it came from.</p>
+            <p class="card__fmt">WFDB · EDF · HL7 aECG</p>
+          </div>
+        </article>
+        <article class="card card--mod" data-emb="pranoma" data-ink="#8fd0b0">
+          <canvas class="card__art" role="img" aria-label="A food web in trophic levels; the most critical organism is marked, removed, and its dependents fade"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span>Ecology</span></p>
+            <h4 class="card__t">Pranoma</h4>
+            <p class="card__d">Rates how critical an organism is to its ecosystem, by how many relations it holds and how much each of them matters.</p>
+            <p class="card__fmt">Darwin Core · GBIF · GraphML</p>
+          </div>
+        </article>
+        <article class="card" data-art="assets/art/the-scream.jpg" data-ink="#e8a3b8" data-crop="0 0.12 1 0.62">
+          <canvas class="card__art" role="img" aria-label="Munch, The Scream, 1893, dithered"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span>From Homonin</span><span>Literature</span></p>
+            <h4 class="card__t">Discover</h4>
+            <p class="card__d">Medical news, synthesised: each story is written from many sources at once, and shows how many it drew on.</p>
+            <p class="card__fmt">Specialty feeds · Source counts</p>
           </div>
         </article>
         <article class="card" data-art="assets/art/composition-xiii.jpg" data-ink="#f97f3a" data-invert>
           <canvas class="card__art" role="img" aria-label="Theo van Doesburg, Composition XIII, 1918, dithered"></canvas>
           <div class="card__body">
-            <p class="card__meta"><span class="status status--research">Research</span><span>Imaging</span></p>
-            <h4 class="card__t">Tomographia</h4>
-            <p class="card__d">CT and MRI to simulation-ready anatomy: segment, mesh and hand the geometry to a solver. The first step of any organ twin.</p>
-            <p class="card__fmt">DICOM · NIfTI · STL · VTK</p>
+            <p class="card__meta"><span>From Homonin</span><span>Reference</span></p>
+            <h4 class="card__t">Database</h4>
+            <p class="card__d">A technical reference browser for the proteome, the genome and drugs, built to be read like data rather than pages.</p>
+            <p class="card__fmt">Proteome · Genome · Drugs</p>
+          </div>
+        </article>
+        <article class="card" data-art="assets/art/woman-with-a-hat.jpg" data-ink="#9fd08a" data-crop="0 0.02 1 0.7">
+          <canvas class="card__art" role="img" aria-label="Matisse, Woman with a Hat, 1905, dithered"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span>From Homonin</span><span>Research</span></p>
+            <h4 class="card__t">Notes</h4>
+            <p class="card__d">A block-based research workspace where notes become a knowledge graph, co-edited with a local medical model.</p>
+            <p class="card__fmt">Knowledge graph · MedGemma</p>
           </div>
         </article>
       </div>
 
       <div class="era">
         <p class="era__no">IV</p>
-        <div><h3 class="era__t">Now</h3><p class="era__d">Homonin, and the instruments inside it.</p></div>
+        <div><h3 class="era__t">Now</h3><p class="era__d">Everything above, in one place.</p></div>
       </div>
       <div class="cards">
-        <article class="card card--wide" data-art="assets/art/starry-night.jpg" data-ink="#e8e2d9" data-hallucinate>
+        <article class="card card--wide" data-art="assets/art/starry-night.jpg" data-ink="#e8e2d9">
           <canvas class="card__art" role="img" aria-label="Van Gogh, The Starry Night, 1889, dithered"></canvas>
           <div class="card__body">
             <p class="card__meta"><span class="status status--live">Live</span><span>Workspace</span></p>
             <h4 class="card__t">Homonin</h4>
-            <p class="card__d">A cyber-medical research workspace: turn what the body emits into models you can reason with, and keep every model tied to the signal that made it.</p>
-            <p class="card__fmt">DICOM · FHIR · FASTQ · EDF · SBML</p>
+            <p class="card__d">A cyber-medical research workspace: the medical literature, structured reference data and a knowledge graph in one surface, with a local model reasoning over all of it.</p>
+            <p class="card__fmt">Discover · Database · Notes</p>
             <p><a class="btn btn--light" href="https://homonin.com">homonin.com <span aria-hidden="true">↗</span></a></p>
-          </div>
-        </article>
-      </div>
-      <div class="cards cards--mods">
-        <article class="card card--mod" data-emb="cardiacity" data-ink="#e0655a" data-acc="#e8e2d9">
-          <canvas class="card__art" role="img" aria-label="A live ECG trace sweeping across a monitor, with each R peak marked and the beat-to-beat intervals plotted below"></canvas>
-          <div class="card__body">
-            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Cardiology</span></p>
-            <h4 class="card__t">Cardiacity</h4>
-            <p class="card__d">The heart as a signal. ECG in; rhythm, intervals and variability out, each tied back to the beat it came from.</p>
-            <p class="card__fmt">WFDB · EDF · HL7 aECG</p>
-          </div>
-        </article>
-        <article class="card card--mod" data-emb="sema" data-ink="#b99be0">
-          <canvas class="card__art" role="img" aria-label="Eight channels of EEG scrolling past, with a spectrogram below; now and then an event crosses every channel"></canvas>
-          <div class="card__body">
-            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Neurology</span></p>
-            <h4 class="card__t">Sema</h4>
-            <p class="card__d">EEG analysis: rhythms, spectra and events across channels, read as signs of what the brain is doing.</p>
-            <p class="card__fmt">EDF · BIDS · NWB</p>
-          </div>
-        </article>
-        <article class="card card--mod" data-emb="pranoma" data-ink="#8fd0b0">
-          <canvas class="card__art" role="img" aria-label="A food web in trophic levels; the most critical organism is marked, removed, and its dependents fade"></canvas>
-          <div class="card__body">
-            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Ecology</span></p>
-            <h4 class="card__t">Pranoma</h4>
-            <p class="card__d">Rates how critical an organism is to its ecosystem, by how many relations it holds and how much each of them matters.</p>
-            <p class="card__fmt">Darwin Core · GBIF · GraphML</p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- V. POST-AI: the site dissolves into the dream ----------------------- -->
+    <!-- V. POST-AI: a clean title, then the site dissolves into the dream ---- -->
     <section id="post" class="post" aria-labelledby="post-h">
       <div class="post__stick">
         <p class="num">V &nbsp;·&nbsp; Post-AI</p>
-        <h2 id="post-h" class="display" data-hallucinate>After the models</h2>
+        <h2 id="post-h" class="display" data-hallucinate>The post-AI era</h2>
         <p class="post__p" data-hallucinate>Models can now write, see and speak. What they can't do on their own is stay true to the body. The work above is built to keep that loop closed.</p>
       </div>
     </section>
