@@ -125,14 +125,19 @@ a:hover { color: var(--acc-ink); }
 .hero__foot .eyebrow { margin: 0; color: var(--ink-mut); }
 .hero__foot .lede { margin: 0; font-size: clamp(24px, 2.4vw, 34px); color: var(--ink-2); }
 .hero__links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-/* below 1000px the name sits in the flow above the figure, so the two can
-   never overlap however short the screen (phone toolbars eat the height) */
+/* below 1000px the name sits on top and the hood rises into it: the same
+   inverting intersection as on wide screens, stacked instead of flanking.
+   The name is bottom-aligned in the first row and the figure pulled up by a
+   fixed share of the name's size, so the overlap holds on any screen height */
 @media (max-width: 1000px) {
-  .hero { grid-template-rows: auto 1fr auto; padding-top: 60px; }
-  .hero__name { position: relative; inset: auto; width: 100%; max-width: var(--maxw); margin: 0 0 12px; font-size: clamp(60px, 19.5vw, 200px); }
+  .hero { --nf: clamp(60px, 19.5vw, 200px); grid-template-rows: 1fr auto auto; padding-top: 60px; }
+  .hero__name {
+    position: relative; inset: auto; align-self: end; width: 100%; max-width: var(--maxw); margin: 0;
+    font-size: var(--nf); z-index: 2; color: #fff; mix-blend-mode: difference;
+  }
   .hero__first, .hero__last { position: static; display: block; }
   .hero__last { text-align: right; }
-  .hero__fig { width: min(92vw, 52svh, 640px); }
+  .hero__fig { width: min(92vw, 52svh, 640px); margin-top: calc(var(--nf) * -1.02); }
 }
 @media (max-width: 700px) {
   .hero__fig { width: min(92vw, 46svh); }
@@ -295,5 +300,5 @@ a:hover { color: var(--acc-ink); }
   .city__at { margin-top: 2px; }
   .origins__stage::after { height: 90px; }
   .hero__fig { width: min(60vw, 70svh); }
-  .hero__name { font-size: min(19.5vw, 24svh); }
+  .hero { --nf: min(19.5vw, 24svh); }
 }
