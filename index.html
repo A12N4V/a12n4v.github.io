@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Arnav Sharma · The body, computed</title>
   <meta name="description" content="Arnav Sharma works where medicine meets computation: biodigital twins, medical AI and cybernetics. Building Homonin, a cyber-medical research workspace." />
   <meta name="theme-color" content="#ebe6dc" />
@@ -30,7 +30,18 @@
       <a href="#post"><i>V</i> Post-AI</a>
       <a href="#contact"><i>VI</i> Contact</a>
     </nav>
+    <button class="bar__menu" type="button" aria-expanded="false" aria-controls="index">Index</button>
   </header>
+  <nav id="index" class="index" aria-label="Sections" hidden>
+    <ol>
+      <li><a href="#top"><i>I</i>Arnav Sharma</a></li>
+      <li><a href="#origins"><i>II</i>Origins</a></li>
+      <li><a href="#minds"><i>III</i>Inspirations</a></li>
+      <li><a href="#opera"><i>IV</i>Opera</a></li>
+      <li><a href="#post"><i>V</i>Post-AI</a></li>
+      <li><a href="#contact"><i>VI</i>Contact</a></li>
+    </ol>
+  </nav>
 
   <main id="top">
     <!-- I. HERO ----------------------------------------------------------- -->
@@ -193,7 +204,7 @@
 
       <div class="era">
         <p class="era__no">III</p>
-        <div><h3 class="era__t">The body, in formats</h3><p class="era__d">cDNA and FASTQ, VCF, ECG, EEG, DICOM: niche medical data, taken seriously.</p></div>
+        <div><h3 class="era__t">The body, in formats</h3><p class="era__d">cDNA and FASTQ, VCF, DICOM: niche medical data, taken seriously.</p></div>
       </div>
       <div class="cards">
         <article class="card" data-art="assets/art/great-wave.jpg" data-ink="#8fc3e0" data-crop="0.02 0 0.7 1">
@@ -214,24 +225,6 @@
             <p class="card__fmt">VCF · HGVS · ClinVar · HPO</p>
           </div>
         </article>
-        <article class="card" data-art="assets/art/minotaur.jpg" data-ink="#e0655a">
-          <canvas class="card__art" role="img" aria-label="Turner, The Shipwreck of the Minotaur, around 1810, dithered"></canvas>
-          <div class="card__body">
-            <p class="card__meta"><span class="status status--building">Building</span><span>Cardiology</span></p>
-            <h4 class="card__t">Sinoatria</h4>
-            <p class="card__d">Arrhythmia detection for single-lead wearables, trained on public ECG corpora and built to explain every flag it raises.</p>
-            <p class="card__fmt">WFDB · EDF · HL7 aECG</p>
-          </div>
-        </article>
-        <article class="card" data-art="assets/art/udnie.jpg" data-ink="#b99be0">
-          <canvas class="card__art" role="img" aria-label="Picabia, Udnie, 1913, dithered"></canvas>
-          <div class="card__body">
-            <p class="card__meta"><span class="status status--research">Research</span><span>Neurology</span></p>
-            <h4 class="card__t">Neuroglyph</h4>
-            <p class="card__d">Seizure forecasting from long-term EEG: a patient-specific model that learns one brain's pre-ictal signature.</p>
-            <p class="card__fmt">EDF · BIDS · NWB</p>
-          </div>
-        </article>
         <article class="card" data-art="assets/art/composition-xiii.jpg" data-ink="#f97f3a" data-invert>
           <canvas class="card__art" role="img" aria-label="Theo van Doesburg, Composition XIII, 1918, dithered"></canvas>
           <div class="card__body">
@@ -245,7 +238,7 @@
 
       <div class="era">
         <p class="era__no">IV</p>
-        <div><h3 class="era__t">Now</h3><p class="era__d">Everything above, in one place.</p></div>
+        <div><h3 class="era__t">Now</h3><p class="era__d">Homonin, and the instruments inside it.</p></div>
       </div>
       <div class="cards">
         <article class="card card--wide" data-art="assets/art/starry-night.jpg" data-ink="#e8e2d9" data-hallucinate>
@@ -256,6 +249,35 @@
             <p class="card__d">A cyber-medical research workspace: turn what the body emits into models you can reason with, and keep every model tied to the signal that made it.</p>
             <p class="card__fmt">DICOM · FHIR · FASTQ · EDF · SBML</p>
             <p><a class="btn btn--light" href="https://homonin.com">homonin.com <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </article>
+      </div>
+      <div class="cards cards--mods">
+        <article class="card card--mod" data-emb="cardiacity" data-ink="#e0655a" data-acc="#e8e2d9">
+          <canvas class="card__art" role="img" aria-label="A live ECG trace sweeping across a monitor, with each R peak marked and the beat-to-beat intervals plotted below"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Cardiology</span></p>
+            <h4 class="card__t">Cardiacity</h4>
+            <p class="card__d">The heart as a signal. ECG in; rhythm, intervals and variability out, each tied back to the beat it came from.</p>
+            <p class="card__fmt">WFDB · EDF · HL7 aECG</p>
+          </div>
+        </article>
+        <article class="card card--mod" data-emb="sema" data-ink="#b99be0">
+          <canvas class="card__art" role="img" aria-label="Eight channels of EEG scrolling past, with a spectrogram below; now and then an event crosses every channel"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Neurology</span></p>
+            <h4 class="card__t">Sema</h4>
+            <p class="card__d">EEG analysis: rhythms, spectra and events across channels, read as signs of what the brain is doing.</p>
+            <p class="card__fmt">EDF · BIDS · NWB</p>
+          </div>
+        </article>
+        <article class="card card--mod" data-emb="pranoma" data-ink="#8fd0b0">
+          <canvas class="card__art" role="img" aria-label="A food web in trophic levels; the most critical organism is marked, removed, and its dependents fade"></canvas>
+          <div class="card__body">
+            <p class="card__meta"><span class="status status--mod">In Homonin</span><span>Ecology</span></p>
+            <h4 class="card__t">Pranoma</h4>
+            <p class="card__d">Rates how critical an organism is to its ecosystem, by how many relations it holds and how much each of them matters.</p>
+            <p class="card__fmt">Darwin Core · GBIF · GraphML</p>
           </div>
         </article>
       </div>
@@ -290,7 +312,7 @@
 
   <footer class="foot">
     <p class="foot__motto">Corpvs · Signvm · Machina</p>
-    <p class="foot__meta">© MMXXVI Arnav Sharma · Paintings by Van Gogh, Munch, Hokusai, Kandinsky, Turner, Picabia, Matisse and Van Doesburg, in the public domain · Dream frames from Google's DeepDream notebook (2015, Apache 2.0)</p>
+    <p class="foot__meta">© MMXXVI Arnav Sharma · Paintings by Van Gogh, Munch, Hokusai, Kandinsky, Matisse and Van Doesburg, in the public domain · Dream frames from Google's DeepDream notebook (2015, Apache 2.0)</p>
   </footer>
 
   <canvas class="dream" aria-hidden="true"></canvas>

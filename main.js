@@ -55,6 +55,33 @@ float b8(vec2 a) { return b2(a * 0.25) * 0.0625 + b2(a * 0.5) * 0.25 + b2(a); }`
     return t;
   }
 
+  // ---- 0. the bar: index menu on small screens, out of the way while reading
+  (() => {
+    const bar = document.querySelector('.bar'), btn = bar && bar.querySelector('.bar__menu'), idx = document.getElementById('index');
+    if (!bar) return;
+    if (btn && idx) {
+      const setOpen = (open) => {
+        idx.hidden = !open; btn.setAttribute('aria-expanded', String(open)); btn.textContent = open ? 'Close' : 'Index';
+        root.classList.toggle('index-open', open);
+        if (open) idx.querySelector('a').focus(); else if (idx.contains(document.activeElement)) btn.focus();
+      };
+      btn.addEventListener('click', () => setOpen(idx.hidden));
+      idx.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+      addEventListener('keydown', (e) => { if (e.key === 'Escape' && !idx.hidden) setOpen(false); });
+    }
+    let lastY = scrollY;
+    addEventListener('scroll', () => {
+      const y = scrollY, d = y - lastY;
+      if (Math.abs(d) > 8) { bar.classList.toggle('bar--away', d > 0 && y > 160 && (!idx || idx.hidden)); lastY = y; }
+    }, { passive: true });
+    bar.addEventListener('focusin', () => bar.classList.remove('bar--away'));
+    const links = [...bar.querySelectorAll('.bar__nav a')];
+    const spy = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) links.forEach((a) => (a.getAttribute('href') === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach((a) => { const sec = document.querySelector(a.getAttribute('href')); if (sec) spy.observe(sec); });
+  })();
+
   // ---- 1. origins -----------------------------------------------------------
   (() => {
     const sec = document.getElementById('origins');
@@ -80,7 +107,7 @@ ${GLSL_LIB}
 vec2 fit(vec2 uv, vec3 f) {
   float sa = u_res.x / u_res.y, ia = 1.5;
   vec2 s = sa > ia ? vec2(1.0, ia / sa) : vec2(sa / ia, 1.0);   // cover
-  if (s.x < 0.62) s *= 0.62 / s.x;                               // portrait: show more, let paper fill the rest
+  if (s.x < 0.54) s *= 0.54 / s.x;                               // portrait: show more, let paper fill the rest
   s /= f.z;
   vec2 c = vec2(clamp(f.x, s.x * 0.5, 1.0 - s.x * 0.5), s.y < 1.0 ? clamp(f.y, s.y * 0.5, 1.0 - s.y * 0.5) : 0.5);
   return c + (uv - 0.5) * s;
@@ -467,11 +494,123 @@ void main() {
         const k = (t * 0.5) % 2.2; if (k < 1 && grow >= 1) { g.fillStyle = ACC(1); circle(g, sx + 0.02 * k, sy + 0.1 + k * 0.9, 0.045); g.fill(); }
         g.lineWidth = lw;
       } },
+    // ---- Homonin's instruments (drawn on black, in each card's ink) ----
+
+    // Cardiacity: a monitor sweep of ECG, R peaks marked, and the beat-to-beat
+    // (RR) intervals plotted underneath as a tachogram.
+    cardiacity: { init(w) { return { ys: new Float32Array(w).fill(NaN), age: new Float32Array(w), rp: new Uint8Array(w), x: 0, ph: 0.3, rr: 0.9, rrs: [] }; },
+      draw(g, w, h, t, st, dt) {
+        const G = (p, c, s, a) => a * Math.exp(-(((p - c) / s) ** 2));
+        const ecg = (p) => G(p, 0.12, 0.03, 0.12) + G(p, 0.23, 0.012, -0.12) + G(p, 0.25, 0.012, 1) + G(p, 0.27, 0.014, -0.28) + G(p, 0.5, 0.05, 0.3);
+        const top = h * 0.1, bot = h * 0.66, base = top + (bot - top) * 0.72, amp = (bot - top) * 0.66, speed = w / 3.2;
+        for (let adv = speed * dt; adv > 0; adv -= 1) {
+          const step = Math.min(1, adv), p0 = st.ph;
+          st.x += step; st.ph += step / speed / st.rr;
+          if (st.ph >= 1) { st.ph -= 1; st.rrs.push(st.rr); if (st.rrs.length > 60) st.rrs.shift(); st.rr = 0.8 + 0.1 * Math.sin(t * 0.4) + (hash(st.rrs.length, Math.floor(t * 10)) - 0.5) * 0.09; }
+          const xi = Math.floor(st.x) % w;
+          st.ys[xi] = base - ecg(st.ph) * amp; st.age[xi] = t; st.rp[xi] = p0 < 0.25 && st.ph >= 0.25 ? 1 : 0;
+          for (let k = 1; k < 7; k++) st.ys[(xi + k) % w] = NaN;               // the gap ahead of the sweep
+        }
+        g.setTransform(1, 0, 0, 1, 0, 0);
+        g.fillStyle = GRAY(0.12);
+        for (let y = top; y < bot; y += 10) for (let x = 4; x < w; x += 10) g.fillRect(x, y, 1, 1);
+        g.lineWidth = 1.4;
+        for (let x = 1; x < w; x++) {
+          const a = st.ys[x - 1], b = st.ys[x]; if (Number.isNaN(a) || Number.isNaN(b)) continue;
+          g.strokeStyle = GRAY(clamp(1 - (t - st.age[x]) / 3.2 * 0.75)); g.beginPath(); g.moveTo(x - 1, a); g.lineTo(x, b); g.stroke();
+          if (st.rp[x]) { g.fillStyle = ACC(1); g.fillRect(x - 1, top - 2, 3, 3); }
+        }
+        const t0 = h * 0.76, t1 = h * 0.94, n = st.rrs.length, bw = Math.max(2, Math.floor(w / 62));
+        g.fillStyle = GRAY(0.3); g.fillRect(0, t1, w, 1);
+        st.rrs.forEach((rr, i) => { const bh = clamp((rr - 0.62) / 0.4) * (t1 - t0); g.fillStyle = i === n - 1 ? ACC(1) : GRAY(0.75); g.fillRect(w - (n - i) * (bw + 1), t1 - bh, bw, bh); });
+      } },
+
+    // Sema: eight EEG channels scrolling past, their spectrogram below; every
+    // few seconds a spike-and-wave event crosses all of them.
+    sema: { draw(g, w, h, t) {
+      const CH = 8, top = h * 0.05, specH = h * 0.22, laneH = (h - top - specH - h * 0.06) / CH, k = 4 / w;
+      const ev = (tt) => { const f = ((tt % 9) + 9) % 9; return f > 6 && f < 7.4 ? (f - 6) / 1.4 : -1; };
+      const sig = (c, tt) => {
+        const env = 0.55 + 0.45 * Math.sin(tt * 0.6 + c * 0.9);
+        let v = env * Math.sin(tt * TAU * 3.1 + c) + 0.25 * Math.sin(tt * TAU * 7.3 + c * 2.1) + 0.3 * Math.sin(tt * TAU * 0.45 + c * 1.3) + 0.18 * Math.sin(tt * 53.1 + c * 7) * Math.sin(tt * 11.7 + c);
+        const e = ev(tt); if (e >= 0) { const q = (e * 4) % 1; v = v * 0.3 + (1.6 * Math.exp(-(((q - 0.12) / 0.05) ** 2)) - 0.7 * Math.sin(q * TAU)) * (0.7 + 0.3 * Math.sin(c)); }
+        return v;
+      };
+      g.setTransform(1, 0, 0, 1, 0, 0); g.lineWidth = 1;
+      for (let c = 0; c < CH; c++) {
+        const y0 = top + laneH * (c + 0.5), A = laneH * 0.34;
+        g.fillStyle = GRAY(0.15); g.fillRect(0, Math.round(y0), 3, 1);
+        let inEv = null;
+        g.beginPath();
+        for (let x = 0; x <= w; x++) {
+          const tt = t - (w - x) * k, e = ev(tt) >= 0, y = y0 - sig(c, tt) * A;
+          if (e !== inEv) { if (inEv !== null) { g.lineTo(x, y); g.stroke(); } g.strokeStyle = e ? ACC(1) : GRAY(0.9); g.beginPath(); g.moveTo(x, y); inEv = e; } else g.lineTo(x, y);
+        }
+        g.stroke();
+      }
+      const s0 = h - specH - h * 0.02, NB = 12, bh = specH / NB;
+      for (let x = 0; x < w; x += 2) {
+        const tt = t - (w - x) * k, e = ev(tt) >= 0, env = 0.55 + 0.45 * Math.sin(tt * 0.6 + 3);
+        for (let b = 0; b < NB; b++) {
+          const f = b / NB, p = e ? clamp(1 - f * 1.5) : 0.9 * env * Math.exp(-(((f - 0.3) / 0.07) ** 2)) + 0.35 * Math.exp(-(((f - 0.62) / 0.08) ** 2)) + 0.25 * (1 - f) ** 3;
+          g.fillStyle = e && b < 4 ? ACC(clamp(p)) : GRAY(clamp(p)); g.fillRect(x, s0 + specH - (b + 1) * bh, 2, bh);
+        }
+      }
+    } },
+
+    // Pranoma: a food web in trophic levels. Each organism's criticality is the
+    // share of its consumers' diets it supplies, plus how connected it is. The
+    // most critical one is found, removed, and the organisms that depended on
+    // it fade; then the web recovers.
+    pranoma: { init(w, h) {
+        const LV = [7, 5, 4, 2], nodes = [], edges = [];
+        LV.forEach((n, L) => { for (let i = 0; i < n; i++) nodes.push({ L, x: w * (0.1 + 0.8 * ((i + 0.5 + (hash(i, L) - 0.5) * 0.5) / n)), y: h * (0.86 - L * 0.24) + (hash(L, i) - 0.5) * h * 0.06, deg: 0, crit: 0 }); });
+        nodes.forEach((a, j) => {
+          if (!a.L) return;
+          const prey = nodes.map((b, i) => [b, i]).filter(([b]) => b.L === a.L - 1 || (b.L === a.L - 2 && hash(j, 99) < 0.3));
+          const m = 1 + Math.floor(hash(j, 7) * 3);
+          for (let q = 0; q < m; q++) {
+            const pick = prey.reduce((best, [b, i]) => { const sc = (b.deg + 1) * hash(i * 13 + q, j); return !best || sc > best[0] ? [sc, i] : best; }, null)[1];
+            if (!edges.some((e) => e.a === pick && e.b === j)) { edges.push({ a: pick, b: j, w: 0.35 + hash(pick, j + q) * 0.65 }); nodes[pick].deg++; a.deg++; }
+          }
+        });
+        nodes.forEach((n, i) => {
+          const diet = (j) => edges.filter((e) => e.b === j).reduce((s, e) => s + e.w, 0);
+          n.crit = edges.filter((e) => e.a === i).reduce((s, e) => s + e.w / diet(e.b), 0) + 0.15 * n.deg;
+        });
+        const key = nodes.reduce((b, n, i) => (n.crit > nodes[b].crit ? i : b), 0), max = nodes[key].crit;
+        // how much each organism loses if the keystone goes
+        const loss = nodes.map((n, j) => { const all = edges.filter((e) => e.b === j), tot = all.reduce((s, e) => s + e.w, 0); return tot ? all.filter((e) => e.a === key).reduce((s, e) => s + e.w, 0) / tot : 0; });
+        return { nodes, edges, key, max, loss };
+      },
+      draw(g, w, h, t, st) {
+        const { nodes, edges, key, max, loss } = st, c = t % 10;
+        const mark = c > 3 && c < 8.5, gone = smooth(4, 5, c) * (1 - smooth(8, 9.5, c)), hit = (j) => clamp(loss[j] * 1.4) * gone;
+        const P = (i) => [nodes[i].x + Math.sin(t * 0.5 + i) * 1.5, nodes[i].y + Math.cos(t * 0.4 + i * 1.7) * 1.5];
+        g.setTransform(1, 0, 0, 1, 0, 0);
+        edges.forEach((e, k) => {
+          const fade = e.a === key || e.b === key ? 1 - gone : 1 - hit(e.b) * 0.7, [x1, y1] = P(e.a), [x2, y2] = P(e.b);
+          g.strokeStyle = GRAY(0.45 * fade); g.lineWidth = 0.6 + e.w * 1.4; g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); g.stroke();
+          const f = (t * 0.35 + hash(k, 3)) % 1;                         // energy moving up the web
+          if (fade > 0.5) { g.fillStyle = GRAY(0.95); g.fillRect(x1 + (x2 - x1) * f - 1, y1 + (y2 - y1) * f - 1, 2, 2); }
+        });
+        nodes.forEach((n, i) => {
+          const [x, y] = P(i), r = 2 + 5 * Math.sqrt(n.crit / max);
+          if (i === key) {
+            if (mark) { g.strokeStyle = ACC(1); g.lineWidth = 1; circle(g, x, y, r + 4 + 3 * Math.sin(t * 6)); g.stroke(); }
+            g.fillStyle = mark ? ACC(1 - gone * 0.85) : GRAY(1);
+          } else g.fillStyle = GRAY(1 - hit(i) * 0.8);
+          circle(g, x, y, r); g.fill();
+        });
+      } },
   };
 
   (() => {
     const INK = [12, 10, 9], ACCENT = rgb('#a8400c'), PAPER = rgb('#efebe3');
-    const items = [...document.querySelectorAll('.mind[data-emb]')].map((el) => ({ el, cv: el.querySelector('.mind__art'), e: EMB[el.dataset.emb], st: null, w: 0, h: 0, on: false, t: 0 }));
+    const items = [...document.querySelectorAll('[data-emb]')].filter((el) => EMB[el.dataset.emb]).map((el) => ({
+      el, cv: el.querySelector('.mind__art, .card__art'), e: EMB[el.dataset.emb], st: null, w: 0, h: 0, on: false, t: 0,
+      pal: el.classList.contains('card') ? [rgb(el.dataset.ink || '#e8e2d9'), rgb(el.dataset.acc || '#f97f3a'), [0, 0, 0]] : [INK, ACCENT, PAPER],
+    }));
     if (!items.length) return;
     const off = document.createElement('canvas'), og = off.getContext('2d', { willReadFrequently: true });
     function render(it, dt) {
@@ -481,10 +620,10 @@ void main() {
       og.setTransform(1, 0, 0, 1, 0, 0); og.fillStyle = '#fff'; og.fillRect(0, 0, w, h);
       og.lineCap = 'round'; og.lineJoin = 'round'; og.setLineDash([]);
       og.save(); it.e.draw(og, w, h, it.t, it.st, dt); og.restore();
-      const src = og.getImageData(0, 0, w, h).data, g = it.cv.getContext('2d'), out = g.createImageData(w, h), d = out.data;
+      const src = og.getImageData(0, 0, w, h).data, g = it.cv.getContext('2d'), out = g.createImageData(w, h), d = out.data, [IN, AC, PA] = it.pal;
       for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
         const i = (y * w + x) * 4, R = src[i] / 255, G = src[i + 1] / 255, th = BAYER[(y & 7) * 8 + (x & 7)];
-        const c = R - G > th ? ACCENT : 1 - R > th ? INK : PAPER;
+        const c = R - G > th ? AC : 1 - R > th ? IN : PA;
         d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
       }
       g.putImageData(out, 0, 0);
@@ -504,7 +643,8 @@ void main() {
     }
     items.forEach((it) => near(it.el, (on) => { it.on = on; if (on && !raf) raf = requestAnimationFrame(loop); }, '80px 0px'));
     document.addEventListener('visibilitychange', () => { if (!document.hidden && !raf) raf = requestAnimationFrame(loop); });
-    let rz = 0; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => items.forEach((it) => { it.w = 0; }), 200); });
+    // no resize handler: render() re-initialises a machine only when its canvas size really changes,
+    // so a phone's collapsing address bar doesn't restart them
   })();
 
   // ---- 3. dithered paintings ------------------------------------------------
@@ -557,7 +697,9 @@ void main() {
       c.addEventListener('pointerleave', () => draw(c, 1, 0));
     });
     let rz = 0;
-    addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => cards.forEach(async (c) => { if (c._p && await prepare(c)) draw(c); }), 200); });
+    addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => cards.forEach(async (c) => {
+      if (c._p && Math.round(c.querySelector('.card__art').getBoundingClientRect().width / 2) !== c._p.w && await prepare(c)) draw(c);
+    }), 200); });
   })();
 
   // ---- 4. dithered seams ----------------------------------------------------
@@ -660,7 +802,7 @@ void main() {
   function state() {
     const vh = innerHeight, r = post.getBoundingClientRect();
     const q = (-r.top) / Math.max(1, r.height - vh);              // 0 when the section reaches the top, 1 when it leaves
-    const dissolve = smooth(-0.32, 0.3, q) * (1 - smooth(0.86, 1.0, q));
+    const dissolve = smooth(-0.12, 0.3, q) * (1 - smooth(0.86, 1.0, q));   // starts once the last cards have mostly left
     return { q, dissolve, dream: smooth(0.1, 0.45, q) * (1 - smooth(0.86, 1.0, q)) };
   }
 
