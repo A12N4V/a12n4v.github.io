@@ -46,7 +46,6 @@ a:hover { color: var(--acc-ink); }
 .skip { position: absolute; left: -999px; top: 8px; z-index: 50; padding: 8px 12px; background: var(--ink); color: var(--paper); font: 13px var(--mono); }
 .skip:focus { left: 8px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
 
 /* ---------- top bar (inverts over any background) ---------- */
 .bar {
@@ -61,7 +60,7 @@ a:hover { color: var(--acc-ink); }
 .bar--away { transform: translateY(-100%); }
 .bar__nav a[aria-current] { text-decoration: underline; text-underline-offset: 6px; }
 .bar a:hover { color: inherit; opacity: 0.6; }
-.bar__mark { display: inline-flex; align-items: center; gap: 10px; }
+.bar__mark { display: inline-flex; align-items: center; }
 .bar__nav { display: flex; gap: clamp(12px, 2.2vw, 28px); }
 .bar__nav i { font-style: normal; opacity: 0.55; margin-right: 4px; }
 /* small screens: one Index button opens the full list */
@@ -229,8 +228,6 @@ a:hover { color: var(--acc-ink); }
 .status--building { color: var(--bone); }
 .status--research { color: var(--bone-dim); }
 .status--next { color: var(--bone-mut); border-style: dashed; }
-.status--mod { color: var(--acc); }
-.cards--mods { margin-top: clamp(14px, 2vw, 24px); }
 @media (min-width: 900px) {
   .card--wide { grid-column: 1 / -1; flex-direction: row; }
   .card--wide .card__art { width: 55%; aspect-ratio: 4 / 3; border-bottom: 0; border-right: 1px solid var(--night-rule); }
